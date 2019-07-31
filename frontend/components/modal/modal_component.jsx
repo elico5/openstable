@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { turnOffModal } from '../../actions/modal_actions';
+import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, turnOffModal } from '../../actions/modal_actions';
 import LoginForm from '../session_forms/login_form';
-import SignUpForm from '../session_forms/signup_form';
+import SignUpForm from '../session_forms/sign_up_form';
 
 const Modal = ({ modal_type, turnOffModal }) => {
     if (!modal_type) return null;
     let modal_component;
     switch (modal_type) {
-        case 'Login Form':
+        case LOGIN_FORM_FLAG:
             modal_component = <LoginForm />;
             break;
-        case 'Sign Up Form':
+        case SIGN_UP_FORM_FLAG:
             modal_component = <SignUpForm />;
             break;
         default:
@@ -19,6 +19,7 @@ const Modal = ({ modal_type, turnOffModal }) => {
     }
     return (
         <div className='modal-background' onClick={turnOffModal}>
+            <div className='modal-close'>{String.fromCharCode(10005)}</div>
             <div className='modal-foreground' onClick={e => e.stopPropagation()}>
                 { modal_component }
             </div>
@@ -28,7 +29,7 @@ const Modal = ({ modal_type, turnOffModal }) => {
 
 const mapStateToProps = state => {
     return {
-        modal: state.ui.modal
+        modal_type: state.ui.modal
     }
 };
 
