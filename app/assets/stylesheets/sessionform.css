@@ -1,0 +1,84 @@
+.session-form-wrapper {
+    width: 460px;
+    height: 640px;
+    background-color: white;
+}
+
+.session-form {
+    position: relative;
+    margin: 0px 30px;
+    top: 50px;
+}
+
+.session-form-heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.session-form input[type=text], .session-form input[type=password] {
+    width: calc(100% - 32px);
+    display: inline-block;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.session-form select {
+    width: 100%;
+    display: inline-block;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    height: 50px;
+}
+
+.session-form input:focus, .session-form select:focus {
+    outline: none;
+}
+
+.session-form button {
+    width: 100%;
+    background-color: #B8A68E;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    margin: 5px 0;
+    padding: 15px;
+}
+
+.session-form button:hover {
+    background-color: #2D333F;
+}
+
+.modal-link {
+    margin-left: 5px;
+    color: #B8A68E;
+}
+
+.modal-link:hover {
+    cursor: pointer;
+}
+
+.error-list {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.error-item {
+    color: #DA3743;
+}
+
+.session-form .invalid {
+    color: #DA3743;
+    border: 1px solid #DA3743 !important;
+}
+
+.or {
+    margin-left: 5px;
+}

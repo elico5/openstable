@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logout = logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.sessionLogout = SessionAPI.logout;
     // TESTING
 
     const rootElement = document.getElementById('root');

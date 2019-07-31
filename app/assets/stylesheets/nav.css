@@ -1,0 +1,42 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+}
+
+.nav-logo {
+    font-size: 40px;
+}
+
+.nav-logo .fa-horse-head {
+    color: #B8A68E;
+    margin-right: 5px;
+}
+
+.session-button-container button {
+    font-size: 18px;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    width: 80px;
+    border: none;
+}
+
+.session-button-container button:hover {
+    cursor: pointer;
+}
+
+.session-button-container button:focus {
+    outline: none;
+}
+
+.sign-up, .log-out {
+    background-color: #2D333F;
+    color: white;
+}
+
+.sign-up:hover, .sign-up:focus, .log-out:hover, .log-out:focus {
+    background-color: #B8A68E;
+}
+

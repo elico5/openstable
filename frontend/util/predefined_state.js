@@ -18,10 +18,10 @@ export default (user) => {
             modal: null
         },
         errors: {
-
+            session: []
         },
         session: {
-            id: user.id
+            currentUserId: user.id
         }
     };
 };

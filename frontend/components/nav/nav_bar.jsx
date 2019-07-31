@@ -4,9 +4,9 @@ import NavRight from './nav_right';
 
 export default () => {
     return (
-        <div className='nav-container'>
+        <header className='nav-container'>
             <NavLogo />
             <NavRight />
-        </div>
+        </header>
     );
 };

@@ -11,12 +11,20 @@ class LoginForm extends React.Component {
             password: '',
         };
         this.submitForm = this.submitForm.bind(this);
+        this.submitDemoUser = this.submitDemoUser.bind(this);
     }
 
     submitForm(e) {
         e.preventDefault();
         const login_params = Object.assign({}, this.state);
         this.props.submitForm(login_params).then(
+            () => this.props.turnOffModal()
+        );
+    }
+
+    submitDemoUser() {
+        const demo_user_params = {email: 'testuser@gmail.com', password: 'testuser'};
+        this.props.submitForm(demo_user_params).then(
             () => this.props.turnOffModal()
         );
     }
@@ -28,22 +36,40 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        const errors = this.props.errors.map((error, i) => {
+            return (
+                <li className='error-item' key={i}>{error}</li>
+            );
+        });
         return (
             <div className='session-form-wrapper'>
-                <h1 className='session-form-heading'>Please sign in</h1>
-                <hr />
-                <form onSubmit={this.submitForm}>
-                    <input type="text" onChange={this.update('email')}></input>
-                    <input type="text" onChange={this.update('password')}></input>
-                    <button type="submit">Sign In</button>
-                </form>
-                <hr />
-                <p>
-                    New to OpenStable? 
-                    <span className='modal-link' onClick={() => this.props.turnOnModal(SIGN_UP_FORM_FLAG)}>
-                        Create an account
-                    </span>
-                </p>
+                <div className='session-form'>
+                    <h1 className='session-form-heading'>Please sign in</h1>
+                    <hr />
+                    <ul className='error-list'>
+                        {errors}
+                    </ul>
+                    <form onSubmit={this.submitForm}>
+                        <input type="text"
+                            onChange={this.update('email')}
+                            placeholder="Email"></input>
+                        <input type="password"
+                            onChange={this.update('password')}
+                            placeholder="Password"></input>
+                        <button type="submit">Sign In</button>
+                    </form>
+                    <hr />
+                    <p>
+                        New to OpenStable? 
+                        <span className='modal-link' onClick={() => this.props.turnOnModal(SIGN_UP_FORM_FLAG)}>
+                            Create an account
+                        </span>
+                        <span className='or'> or </span>
+                        <span className='modal-link' onClick={this.submitDemoUser}>
+                            try a demo account
+                        </span>
+                    </p>
+                </div>
             </div>
         );
     }

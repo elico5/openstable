@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, turnOnModal } from '../../actions/modal_actions';
+import { logout } from '../../actions/session_actions';
 
-const NavRight = ({currentUserId, turnOnModal}) => {
+const NavRight = ({currentUserId, turnOnModal, logout}) => {
     if (currentUserId) {
         return (
-            <div>
-                PLACEHOLDER TEXT
+            <div className='session-button-container'>
+                <button className='log-out'
+                    onClick={logout}>Log out</button>
             </div>
         );
     } else {
         return (
-            <div>
-                <button onClick={() => turnOnModal(SIGN_UP_FORM_FLAG)}>Sign Up</button>
-                <button onClick={() => turnOnModal(LOGIN_FORM_FLAG)}>Sign In</button>
+            <div className='session-button-container'>
+                <button className='sign-up'
+                    onClick={() => turnOnModal(SIGN_UP_FORM_FLAG)}>Sign up</button>
+                <button className='sign-in'
+                    onClick={() => turnOnModal(LOGIN_FORM_FLAG)}>Sign in</button>
             </div>
         );
     }
@@ -21,13 +25,14 @@ const NavRight = ({currentUserId, turnOnModal}) => {
 
 const mapStateToProps = ({ session }) => {
     return {
-        currentUserId: session.userId
+        currentUserId: session.currentUserId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        turnOnModal: flag => dispatch(turnOnModal(flag))
+        turnOnModal: flag => dispatch(turnOnModal(flag)),
+        logout: () => dispatch(logout())
     };
 };
 

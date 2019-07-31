@@ -23,7 +23,8 @@ class Api::UsersController < ApplicationController
             :password,
             :first_name,
             :last_name,
-            :phone_number
+            :phone_number,
+            :riding_location
         )
     end
 
