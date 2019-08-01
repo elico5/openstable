@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Dosis&display=swap', media: 'all' %>
     <%= javascript_include_tag 'application', 'https://kit.fontawesome.com/a6ccfa9636.js' %>
   </head>
@@ -14,6 +15,7 @@
     window.splash2URL = "<%= image_url('splash2.jpg') %>"
     window.splash3URL = "<%= image_url('splash3.jpg') %>"
     window.splash4URL = "<%= image_url('splash4.jpg') %>"
+    window.showBannerURL = "<%= image_url('banner.jpg') %>"
   </script>
 
   <body>

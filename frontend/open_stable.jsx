@@ -5,8 +5,7 @@ import configureStore from './store/store';
 import predefinedState from './util/predefined_state';
 
 // TESTING IMPORTS
-import * as SessionAPI from './util/session_api';
-import { login, signup, logout } from './actions/session_actions';
+
 // TESTING IMPORTS
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,12 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // TESTING
-    window.signup = signup;
-    window.login = login;
-    window.logout = logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.sessionLogout = SessionAPI.logout;
     // TESTING
 
     const rootElement = document.getElementById('root');

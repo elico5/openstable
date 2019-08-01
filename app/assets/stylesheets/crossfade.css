@@ -33,8 +33,8 @@
 
 .cross-fade-container img:nth-child(1) {
     animation: crossfade 36s 0s infinite;
-    top: -160px;
-    left: -100px;
+    top: -270px;
+    left: -70px;
 }
 
 .cross-fade-container img:nth-child(2) {

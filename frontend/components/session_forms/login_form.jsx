@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
     }
 
     submitDemoUser() {
-        const demo_user_params = {email: 'testuser@gmail.com', password: 'testuser'};
+        const demo_user_params = {email: 'demouser@openstable.com', password: 'demouser'};
         this.props.submitForm(demo_user_params).then(
             () => this.props.turnOffModal()
         );

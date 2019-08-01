@@ -9,6 +9,10 @@
     font-size: 40px;
 }
 
+.nav-logo:hover {
+    cursor: default;
+}
+
 .nav-logo .fa-horse-head {
     color: #B8A68E;
     margin-right: 5px;
