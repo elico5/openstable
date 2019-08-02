@@ -25,7 +25,7 @@ class StableShow extends React.Component {
         return (
             <div>
                 <ShowBanner />
-                <ShowContent />
+                <ShowContent stable={stable} />
             </div>
         );
     }
