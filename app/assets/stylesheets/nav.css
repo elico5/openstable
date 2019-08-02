@@ -10,7 +10,7 @@
 }
 
 .nav-logo:hover {
-    cursor: default;
+    cursor: pointer;
 }
 
 .nav-logo .fa-horse-head {
@@ -35,12 +35,60 @@
     outline: none;
 }
 
-.sign-up, .log-out {
+.sign-up {
     background-color: #2D333F;
     color: white;
 }
 
-.sign-up:hover, .sign-up:focus, .log-out:hover, .log-out:focus {
+.sign-up:hover, .sign-up:focus {
     background-color: #B8A68E;
 }
 
+.dropdown-container {
+    padding: 15px;
+    border-left: 1px solid #ccc;
+    position: relative;
+}
+
+.dropdown-container:hover {
+    cursor: pointer;
+}
+
+.logged-in-nav-right {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.logged-in-nav-right .fa-chevron-down {
+    padding-left: 5px;
+}
+
+.logged-in-nav-right .fa-calendar-alt {
+    margin-right: 15px;
+}
+
+.logged-in-nav-right .fa-calendar-alt:hover {
+    cursor: pointer;
+}
+
+#user-dropdown {
+    position: absolute;
+    height: max-content;
+    width: 230px;
+    z-index: 1;
+    top: 55px;
+    right: 22px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+}
+
+#user-dropdown div {
+    width: calc(100%-30px);
+    padding: 15px;
+}
+
+#user-dropdown div:hover {
+    background-color: #f2f2f2;
+}

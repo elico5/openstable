@@ -3,12 +3,26 @@ import { connect } from 'react-redux';
 import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, turnOnModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 
-const NavRight = ({currentUserId, turnOnModal, logout}) => {
+const NavRight = ({user, currentUserId, turnOnModal, logout}) => {
     if (currentUserId) {
+        const toggleDropdown = () => {
+            const dropdownElement = document.getElementById('user-dropdown');
+            dropdownElement.style.display = dropdownElement.style.display === '' ?
+                'block' : 'none';
+        };
         return (
-            <div className='session-button-container'>
-                <button className='log-out'
-                    onClick={logout}>Log out</button>
+            <div className='logged-in-nav-right'>
+                <div>
+                    <i className='fas fa-calendar-alt'></i>
+                </div>
+                <div className='dropdown-container' onClick={toggleDropdown}>
+                    <div className='toggle-dropdown'>
+                        Hi, {user.first_name} <i className='fas fa-chevron-down'></i>
+                    </div>
+                    <div id='user-dropdown'>
+                        <div onClick={logout}>Sign Out</div>
+                    </div>
+                </div>
             </div>
         );
     } else {
@@ -23,8 +37,9 @@ const NavRight = ({currentUserId, turnOnModal, logout}) => {
     }
 };
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ({ entities, session }) => {
     return {
+        user: entities.users[session.currentUserId],
         currentUserId: session.currentUserId
     };
 };

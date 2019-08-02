@@ -3,6 +3,19 @@
     color: #2D333F;
 }
 
+*:focus {
+    outline: none;
+}
+
 body {
-    margin: 0;
+    background-color: #ccc;
+}
+
+.main-content {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
+.main-content * {
+    background-color: white;
 }

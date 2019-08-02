@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
         };
         this.submitForm = this.submitForm.bind(this);
         this.submitDemoUser = this.submitDemoUser.bind(this);
+        this.animateLogin = this.animateLogin.bind(this);
     }
 
     submitForm(e) {
@@ -20,6 +21,29 @@ class LoginForm extends React.Component {
         this.props.submitForm(login_params).then(
             () => this.props.turnOffModal()
         );
+    }
+
+    animateLogin() {
+        const email_letters = 'demouser@openstable.com'.split('');
+        const password_letters = 'demouser'.split('');
+        const email_input = document.getElementById('email');
+        const password_input = document.getElementById('password');
+        let email = "";
+        let password = "";
+        email_input.value = "";
+        password_input.value = "";
+        const intervalId = setInterval(() => {
+            if (email_letters.length > 0) {
+                email += email_letters.shift();
+                email_input.value = email;
+            } else if (password_letters.length > 0) {
+                password += password_letters.shift();
+                password_input.value = password;
+            } else {
+                clearInterval(intervalId);
+                this.submitDemoUser();
+            }
+        }, 120);
     }
 
     submitDemoUser() {
@@ -50,23 +74,25 @@ class LoginForm extends React.Component {
                         {errors}
                     </ul>
                     <form onSubmit={this.submitForm}>
-                        <input type="text"
+                        <input id='email'
+                            type="text"
                             onChange={this.update('email')}
                             placeholder="Email"></input>
-                        <input type="password"
+                        <input id='password'
+                            type="password"
                             onChange={this.update('password')}
                             placeholder="Password"></input>
                         <button type="submit">Sign In</button>
                     </form>
                     <hr />
+                    <p>Don't want to complete the form?</p>
+                    <button className='demo-button'
+                        onClick={this.animateLogin}>Try Demo Account</button>
+                    <hr />
                     <p>
                         New to OpenStable? 
                         <span className='modal-link' onClick={() => this.props.turnOnModal(SIGN_UP_FORM_FLAG)}>
                             Create an account
-                        </span>
-                        <span className='or'> or </span>
-                        <span className='modal-link' onClick={this.submitDemoUser}>
-                            try a demo account
                         </span>
                     </p>
                 </div>

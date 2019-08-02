@@ -2,7 +2,7 @@ import React from 'react';
 import timeFix from '../../../util/time_fix';
 
 export default ({ phone_number, open_time, close_time, groomName }) => {
-    open = timeFix(open_time);
+    open_time = timeFix(open_time);
     close = timeFix(close_time);
     return (
         <div className='info-list-container'>
@@ -10,7 +10,7 @@ export default ({ phone_number, open_time, close_time, groomName }) => {
                 <i className='fas fa-clock'></i>
                 <div className='info-item-content'>
                     <p className='info-item-header'>Hours of operation</p>
-                    <p>{open} - {close},  7 days a week</p>
+                    <p>{open_time} - {close},  7 days a week</p>
                 </div>
             </div>
             <div className='info-list-item'>
