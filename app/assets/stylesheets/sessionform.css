@@ -91,3 +91,68 @@
     border-top: 1px solid #ccc;
     margin-top: 15px;
 }
+
+.reservation-confirmation-container {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    background-color: white;
+    padding: 20px;
+}
+
+.reservation-image-container {
+    display: flex;
+    flex-direction: vertical;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    width: 300px;
+    margin: 10px;
+}
+
+.reservation-image {
+    width: 100%;
+    height: auto;
+}
+
+.reservation-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 300px;
+    height: 100%;
+    margin: 10px;
+}
+
+.reservation-stable-name {
+    font-weight: 900;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.reservation-detail-line {
+    margin: 3px 0;
+}
+
+.reservation-detail-line span {
+    margin-right: 5px;
+    font-weight: 900;
+}
+
+.reservation-confirmation-button {
+    width: 100%;
+    background-color: #B8A68E;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.reservation-confirmation-button:hover {
+    background-color: #2D333F;
+    cursor: pointer;
+}
+

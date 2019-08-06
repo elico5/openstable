@@ -1,6 +1,7 @@
 import React from 'react';
 import { getAMPM, getTimes, getPartySizes } from '../../../util/reservation_form_params';
 import { fetchStableSlots, clearSlots } from '../../../actions/slot_actions';
+import { LOGIN_FORM_FLAG, turnOnModal } from '../../../actions/modal_actions';
 import StableSlots from './stable_slots';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -28,10 +29,14 @@ class ReservationForm extends React.Component {
     }
 
     findOpening() {
-        const date = this.state.date;
-        const time = document.getElementById('time-select').value;
-        const partySize = document.getElementById('party-size-select').value;
-        this.props.fetchStableSlots(this.props.stableId, date, time, partySize);
+        if (this.props.userId) {
+            const date = this.state.date;
+            const time = document.getElementById('time-select').value;
+            const partySize = document.getElementById('party-size-select').value;
+            this.props.fetchStableSlots(this.props.stableId, date, time, partySize);
+        } else {
+            this.props.turnOnLoginModal();
+        }
     }
 
     render() {
@@ -78,20 +83,21 @@ class ReservationForm extends React.Component {
                     </form>
                     <button className='reservation-form-submit' onClick={this.findOpening}>Find an Opening</button>
                 </div>
-                <StableSlots />
+                <StableSlots stableId={this.props.stableId} />
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ entities }, { match }) => {
+const mapStateToProps = ({ entities, session }, { match }) => {
     const stable = entities.stables[match.params.stableId];
     const { open_time, close_time, capacity, id } = stable;
     return {
         open_time,
         close_time,
         capacity,
-        stableId: id
+        stableId: id,
+        userId: session.currentUserId
     };
 };
 
@@ -99,7 +105,8 @@ const mapStateToProps = ({ entities }, { match }) => {
 const mapDispatchToProps = dispatch => {
     return {
         clearSlots: () => dispatch(clearSlots()),
-        fetchStableSlots: (stableId, date, time, party_size) => dispatch(fetchStableSlots(stableId, date, time, party_size))
+        fetchStableSlots: (stableId, date, time, party_size) => dispatch(fetchStableSlots(stableId, date, time, party_size)),
+        turnOnLoginModal: () => dispatch(turnOnModal(LOGIN_FORM_FLAG))
     };
 };
 

@@ -206,7 +206,25 @@
     font-weight: 900;
 }
 
-.invalid {
-    border: 1px solid #DA3743 !important;
-    color: 1px solid #DA3743 !important;
+.slot-buttons-container {
+    padding: 15px 0px;
+    margin: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #ccc;
+}
+
+.slot-button {
+    background-color: #B8A68E;
+    color: white;
+    font-weight: 900;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.slot-button:hover {
+    cursor: pointer;
+    background-color: #2D333F;
 }
