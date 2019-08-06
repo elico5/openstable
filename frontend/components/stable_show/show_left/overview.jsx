@@ -1,16 +1,15 @@
 import React from 'react';
-import DescriptionToggle from './description_toggle';
+import ReadMore from '../../../util/read_more';
 import OverviewBar from './overview_bar';
 
-export default ({ name, description }) => {
+export default ({ name, description, overallRating, reviewCount, price }) => {
     return (
         <>
             <div className='stable-name-header'>{name}</div>
-            <OverviewBar rating={4.2} reviewCount={100} price={3} />
+            <OverviewBar rating={overallRating} reviewCount={reviewCount} price={price} />
             <div className='description-container'>
-                <DescriptionToggle description={description} />
+                {ReadMore(description)}
             </div>
-            <div className='reviews-container'></div>
         </>
     );
 };

@@ -5,7 +5,6 @@ import configureStore from './store/store';
 import predefinedState from './util/predefined_state';
 
 // TESTING IMPORTS
-
 // TESTING IMPORTS
 
 document.addEventListener('DOMContentLoaded', () => {

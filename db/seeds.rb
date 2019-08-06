@@ -55,7 +55,7 @@ seed_stable1 = Stable.create(
     open_time: '05:00',
     close_time: '23:00',
     duration: 4,
-    price: 0.25
+    price: 8
 )
 
 seed_stable2 = Stable.create(
@@ -71,7 +71,7 @@ seed_stable2 = Stable.create(
     open_time: '04:00',
     close_time: '21:00',
     duration: 6,
-    price: 0.10
+    price: 2
 )
 
 seed_stable3 = Stable.create(
@@ -87,7 +87,7 @@ seed_stable3 = Stable.create(
     open_time: '06:00',
     close_time: '23:00',
     duration: 6,
-    price: 0.12
+    price: 3
 )
 
 seed_stable4 = Stable.create(
@@ -103,7 +103,7 @@ seed_stable4 = Stable.create(
     open_time: '06:00',
     close_time: '23:59',
     duration: 3,
-    price: 0.30
+    price: 9
 )
 
 # Finding files from AWS
@@ -117,4 +117,101 @@ seed_stable1.picture.attach(io:file1, filename: "stable_#{seed_stable1.id}_pictu
 seed_stable2.picture.attach(io:file2, filename: "stable_#{seed_stable2.id}_picture")
 seed_stable3.picture.attach(io:file3, filename: "stable_#{seed_stable3.id}_picture")
 seed_stable4.picture.attach(io:file4, filename: "stable_#{seed_stable4.id}_picture")
+
+# Creating reservations (all at stable 2 - Collins Inn - at same time)
+seed_res1 = Reservation.create(
+    stable_id: seed_stable2.id,
+    user_id: demo_user.id,
+    date: '2019-08-04',
+    time: '09:00',
+    party_size: 1
+)
+seed_res2 = Reservation.create(
+    stable_id: seed_stable2.id,
+    user_id: seed_user1.id,
+    date: '2019-08-04',
+    time: '09:00',
+    party_size: 1
+)
+seed_res3 = Reservation.create(
+    stable_id: seed_stable2.id,
+    user_id: seed_user2.id,
+    date: '2019-08-04',
+    time: '09:00',
+    party_size: 1
+)
+seed_res4 = Reservation.create(
+    stable_id: seed_stable2.id,
+    user_id: seed_user3.id,
+    date: '2019-08-04',
+    time: '09:00',
+    party_size: 1
+)
+seed_res5 = Reservation.create(
+    stable_id: seed_stable2.id,
+    user_id: seed_user4.id,
+    date: '2019-08-04',
+    time: '09:00',
+    party_size: 2
+)
+
+# Creating reviews
+seed_rev1 = Review.create(
+    reservation_id: seed_res1.id,
+    overall: 5,
+    service: 5,
+    cleanliness: 5,
+    value: 5,
+    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
+)
+seed_rev2 = Review.create(
+    reservation_id: seed_res2.id,
+    overall: 4,
+    service: 4,
+    cleanliness: 4,
+    value: 4,
+    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
+)
+seed_rev3 = Review.create(
+    reservation_id: seed_res3.id,
+    overall: 3,
+    service: 3,
+    cleanliness: 3,
+    value: 3,
+    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
+)
+seed_rev4 = Review.create(
+    reservation_id: seed_res4.id,
+    overall: 2,
+    service: 2,
+    cleanliness: 2,
+    value: 2,
+    body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+)
+seed_rev5 = Review.create(
+    reservation_id: seed_res5.id,
+    overall: 1,
+    service: 1,
+    cleanliness: 1,
+    value: 1,
+    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
+)
+
+# Creating favorites (demo user favorites every stable)
+seed_fav1 = Favorite.create(
+    stable_id: seed_stable1.id,
+    user_id: demo_user.id
+)
+seed_fav2 = Favorite.create(
+    stable_id: seed_stable2.id,
+    user_id: demo_user.id
+)
+seed_fav3 = Favorite.create(
+    stable_id: seed_stable3.id,
+    user_id: demo_user.id
+)
+seed_fav4 = Favorite.create(
+    stable_id: seed_stable4.id,
+    user_id: demo_user.id
+)
 

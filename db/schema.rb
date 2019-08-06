@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_154830) do
+ActiveRecord::Schema.define(version: 2019_08_05_014016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,40 @@ ActiveRecord::Schema.define(version: 2019_08_01_154830) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "stable_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stable_id"], name: "index_favorites_on_stable_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "stable_id", null: false
+    t.integer "user_id", null: false
+    t.date "date", null: false
+    t.time "time", null: false
+    t.integer "party_size", null: false
+    t.boolean "cancelled", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stable_id"], name: "index_reservations_on_stable_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "overall", null: false
+    t.integer "service", null: false
+    t.integer "cleanliness", null: false
+    t.integer "value", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "reservation_id", null: false
+    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+  end
+
   create_table "stables", force: :cascade do |t|
     t.string "name", null: false
     t.string "phone_number", null: false
@@ -52,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_154830) do
     t.time "open_time", null: false
     t.time "close_time", null: false
     t.integer "duration", null: false
-    t.float "price", null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["groom_id"], name: "index_stables_on_groom_id"

@@ -8,7 +8,7 @@ const NavRight = ({user, currentUserId, turnOnModal, logout}) => {
         const toggleDropdown = () => {
             const dropdownElement = document.getElementById('user-dropdown');
             dropdownElement.style.display = dropdownElement.style.display === '' ?
-                'block' : 'none';
+                'block' : '';
         };
         return (
             <div className='logged-in-nav-right'>

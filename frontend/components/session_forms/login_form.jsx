@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
                 clearInterval(intervalId);
                 this.submitDemoUser();
             }
-        }, 120);
+        }, 80);
     }
 
     submitDemoUser() {
@@ -69,7 +69,6 @@ class LoginForm extends React.Component {
             <div className='session-form-wrapper'>
                 <div className='session-form'>
                     <h1 className='session-form-heading'>Please sign in</h1>
-                    <hr />
                     <ul className='error-list'>
                         {errors}
                     </ul>
@@ -84,11 +83,10 @@ class LoginForm extends React.Component {
                             placeholder="Password"></input>
                         <button type="submit">Sign In</button>
                     </form>
-                    <hr />
                     <p>Don't want to complete the form?</p>
                     <button className='demo-button'
                         onClick={this.animateLogin}>Try Demo Account</button>
-                    <hr />
+                    <div className='hr'></div>
                     <p>
                         New to OpenStable? 
                         <span className='modal-link' onClick={() => this.props.turnOnModal(SIGN_UP_FORM_FLAG)}>

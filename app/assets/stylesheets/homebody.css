@@ -1,0 +1,151 @@
+.outer-home-body-container {
+    width: 100%;
+    height: max-content;
+}
+
+.inner-home-body-container {
+    width: calc(100% - 300px);
+    margin: 0 150px;
+}
+
+.location-tracker {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.location-change-span {
+    color: #B8A68E;
+    margin-left: 10px;
+}
+
+.location-change-span .fa-location-arrow {
+    margin-right: 5px;
+    color: #B8A68E;
+}
+
+.location-change-span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.featured-stables-outer-container h1 {
+    font-size: 26px;
+    font-weight: 900;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.featured-stables-inner-container {
+    width: 100%;
+    padding-top: 8px;
+    height: max-content;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.featured-stable-container {
+    height: 240px;
+    overflow: hidden;
+    width: 240px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 15px;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.featured-stable-container:nth-of-type(1) {
+    margin-left: 0px;
+}
+
+.featured-stable-container:hover {
+    cursor: pointer;
+    top: -5px;
+    box-shadow: 0 8px 6px -6px #ccc;
+}
+
+.featured-stable-image-container {
+    overflow: hidden;
+    position: relative;
+    width: 240px;
+    height: 130px;
+}
+
+.featured-stable-image {
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    top: -25%;
+}
+
+.featured-stable-name {
+    font-weight: 900;
+    margin: 5px 10px;
+    font-size: 18px;
+}
+
+.featured-stable-container .index-item-stars {
+    margin-left: 10px;
+    display: inline;
+}
+
+.featured-stable-container .filled {
+    color: #B8A68E;
+}
+
+.featured-stable-container .unfilled {
+    color: #ccc;
+}
+
+.featured-stable-container .review-count {
+    margin-left: 10px;
+}
+
+.featured-stable-container .price-reservation-count {
+    margin: 5px 10px;
+}
+
+.featured-stable-container .price-reservation-count .fa-chart-line {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.featured-regions-outer-container h1 {
+    font-size: 26px;
+    font-weight: 900;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.aspect-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 33%;
+    height: 0;
+    margin-top: 25px;
+    margin-bottom: 60px;
+}
+
+.featured-regions-inner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.feature-img-container {
+    width: calc(100% / 3);
+    height: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-img-container img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}

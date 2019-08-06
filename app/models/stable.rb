@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'date'
 
 class Stable < ApplicationRecord
     validates :name, :phone_number, :city, :state, :lat, :lng, :capacity,
@@ -17,6 +18,11 @@ class Stable < ApplicationRecord
 
     belongs_to :groom, class_name: :User
     has_one_attached :picture
+    has_many :reservations
+    has_many :reservations_today, -> { where date: Date.today }, class_name: :Reservation
+    has_many :reviews, through: :reservations, source: :review
+    has_many :reviewees, through: :reviews, source: :user
+    has_many :favorites
 
     after_initialize :get_lat_lng, :get_region
 

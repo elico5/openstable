@@ -111,7 +111,6 @@ class SignUpForm extends React.Component {
             <div className='session-form-wrapper'>
                 <div className='session-form'>
                     <h1 className='session-form-heading'>Welcome to OpenStable!</h1>
-                    <hr />
                     <ul className='error-list'>
                         {errors}
                     </ul>
@@ -142,7 +141,6 @@ class SignUpForm extends React.Component {
                         </select>
                         <button type="submit">Create Account</button>
                     </form>
-                    <hr />
                     <p>
                         By creating an account you agree to the
                         <span className='modal-link'>
