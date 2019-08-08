@@ -26,7 +26,6 @@
 .search-detail-outer-container {
     width: 20%;
     height: 100px;
-    background-color: black;
     margin-right: 15px;
 }
 
@@ -69,12 +68,12 @@
     margin-left: 20px;
 }
 
-
 .search-item-detail-name {
     font-size: 24px;
     font-weight: 900;
     color: #B8A68E;
     margin-bottom: 5px;
+    display: inline;
 }
 
 .search-item-detail-name:hover {
@@ -133,4 +132,104 @@
 .no-results-container {
     font-size: 20px;
     font-weight: 900;
+}
+
+.search-detail-header {
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.search-detail-detail {
+    margin: 5px 0;
+}
+
+.search-detail-detail .icon {
+    margin-right: 5px;
+}
+
+.search-detail-detail .search-detail-type {
+    margin-right: 5px;
+    font-weight: 900;
+}
+
+.search-page-form-container {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.search-search-form {
+    display: flex;
+}
+
+#search-search-date-select, #search-search-time-select, #search-search-party-size-select, #search-region-select, .search-search-button {
+    height: 50px;
+    border: none;
+}
+
+#search-search-date-select, #search-search-time-select, #search-search-party-size-select, #search-region-select {
+    background-color: white;
+    font-weight: 900px;
+    font-size: 18px;
+    border: none;
+}
+
+#search-search-date-select:hover, #search-search-time-select:hover, #search-search-party-size-select:hover, #search-region-select:hover {
+    cursor: pointer;
+}
+
+#search-region-select {
+    width: 300px;
+}
+
+.region-search-container {
+    background-color: white;
+    border-left: 1px solid #ccc;
+}
+
+#search-search-time-select {
+    width: 145px;
+}
+
+#search-search-date-select {
+    width: 225px;
+    border-left: 1px solid #ccc;
+    display: block;
+}
+
+#search-search-party-size-select {
+    width: 150px;
+}
+
+.party-size-search-container {
+    background-color: white;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.time-search-container {
+    background-color: white;
+    border-left: 1px solid #ccc;
+}
+
+.search-search-button {
+    width: 160px;
+    background-color: #B8A68E;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.search-search-button:hover {
+    cursor: pointer;
+    filter: brightness(85%);
 }

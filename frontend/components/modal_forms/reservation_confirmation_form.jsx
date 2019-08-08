@@ -2,7 +2,7 @@ import React from 'react';
 import { turnOffModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getAMPM } from '../../util/reservation_form_params';
+import { getAMPM } from '../../util/time/time';
 
 const ReservationConfirmationForm = ({stable, slot, turnOffModal}) => {
     const confirmReservation = () => {

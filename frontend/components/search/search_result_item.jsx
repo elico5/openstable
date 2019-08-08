@@ -1,7 +1,7 @@
 import React from 'react';
 import { RESERVATION_CONFIRMATION_FLAG, LOGIN_FORM_FLAG, turnOnModal } from '../../actions/modal_actions';
-import { getAMPM } from '../../util/reservation_form_params';
-import renderStars from '../../util/render_stars';
+import { getAMPM } from '../../util/time/time';
+import renderStars from '../../util/render/render_stars';
 import priceCategory from '../../util/price_category';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';

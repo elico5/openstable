@@ -1,4 +1,4 @@
-import * as StableAPI from '../util/stable_api';
+import * as StableAPI from '../util/api/stable_api';
 
 export const RECEIVE_STABLE = 'RECEIVE_STABLE';
 export const RECEIVE_STABLES = 'RECEIVE_STABLES';

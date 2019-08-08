@@ -1,6 +1,6 @@
 import React from 'react';
 import { RESERVATION_CONFIRMATION_FLAG, turnOnModal, LOGIN_FORM_FLAG } from '../../../actions/modal_actions';
-import { getAMPM } from '../../../util/reservation_form_params';
+import { getAMPM } from '../../../util/time/time';
 import { connect } from 'react-redux';
 
 const StableSlots = ({ slots, userId, turnOnConfirmationModal, turnOnLoginModal }) => {

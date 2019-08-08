@@ -1,4 +1,4 @@
-import * as SlotAPI from '../util/slot_api';
+import * as SlotAPI from '../util/api/slot_api';
 
 export const RECEIVE_SLOTS = 'RECEIVE_SLOTS';
 export const RECEIVE_STABLES_AND_SLOTS = 'RECEIVE_STABLES_AND_SLOTS';

@@ -1,7 +1,7 @@
 import React from 'react';
 import ShowBanner from './show_banner';
 import ShowContent from './show_content';
-import { selectStable } from '../../util/selectors';
+import { selectStable } from '../../util/selectors/selectors';
 import { fetchStable } from '../../actions/stable_actions';
 import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions';
 import { connect } from 'react-redux';

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReadMore from '../../../util/read_more';
+import ReadMore from '../../../util/render/read_more';
 import OverviewBar from './overview_bar';
 
 export default ({ name, description, overallRating, reviewCount, price }) => {

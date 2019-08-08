@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchResultItem from './search_result_item';
+import regionIdToString from '../../util/region_id_to_string';
 import { connect } from 'react-redux';
 
-const SearchResults = ({ stables, slots, search }) => {
-    const area = 'the Northeastern United States';
+const SearchResults = ({ stables, slots, region }) => {
     if (stables.constructor === Object && Object.entries(stables).length === 0) {
         return (
             <div className='no-results-container'>
-                Sorry partner, looks like none of our stables in {area} have openings that accommodate that search request.
+                Sorry partner, looks like none of our stables in {regionIdToString(region)} have openings that accommodate that search request.
             </div>
         );
     } else {
@@ -22,11 +22,11 @@ const SearchResults = ({ stables, slots, search }) => {
     }
 };
 
-const mapStateToProps = ({ entities, ui }) => {
+const mapStateToProps = ({ entities }, { region }) => {
     return {
         stables: entities.stables,
         slots: entities.slots,
-        search: ui.search
+        region
     };
 };
 

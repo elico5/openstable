@@ -41,7 +41,7 @@ const FeaturedRegions = ({ history }) => {
                     </div>
                     <div className='feature-img-container' onClick={() => redirectToSearch(6)}>
                         <img src={window.featureOURL} />
-                        <div className='featured-region-label'>{regionIdToString(6)}</div>
+                        <div className='featured-region-label'>{regionIdToString(0)}</div>
                     </div>
                 </div>
             </div>

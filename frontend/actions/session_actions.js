@@ -1,8 +1,9 @@
-import * as SessionAPI from '../util/session_api';
+import * as SessionAPI from '../util/api/session_api';
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const CHANGE_SESSION_REGION = 'CHANGE_SESSION_REGION';
 
 export const loginUser = user => {
     return {
@@ -15,6 +16,14 @@ export const logoutUser = user => {
     return {
         type: LOGOUT_USER,
         user
+    };
+};
+
+
+export const changeRegion = regionId => {
+    return {
+        type: CHANGE_SESSION_REGION,
+        region: regionId
     };
 };
 

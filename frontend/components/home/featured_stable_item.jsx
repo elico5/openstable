@@ -1,5 +1,5 @@
 import React from 'react';
-import renderStars from '../../util/render_stars';
+import renderStars from '../../util/render/render_stars';
 import priceCategory from '../../util/price_category';
 import { withRouter } from 'react-router-dom';
 

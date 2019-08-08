@@ -1,5 +1,5 @@
 import React from 'react';
-import renderStars from '../../../util/render_stars';
+import renderStars from '../../../util/render/render_stars';
 import ReviewList from './review_list';
 
 export default ({ reviewCount, overallRating, serviceRating, cleanlinessRating, valueRating, reviews, users }) => {

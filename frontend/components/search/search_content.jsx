@@ -10,7 +10,7 @@ export default ({ region, date, time, partySize }) => {
                     <SearchDetails region={region} date={date} time={time} partySize={partySize} />
                 </div>
                 <div className='search-results-outer-container'>
-                    <SearchResults />
+                    <SearchResults region={region} />
                 </div>
             </div>
         </div>

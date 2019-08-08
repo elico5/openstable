@@ -1,5 +1,6 @@
 import React from 'react';
-import { getAMPM, getTimes, getPartySizes } from '../../../util/reservation_form_params';
+import { getTimes, getPartySizes } from '../../../util/reservation_form_params';
+import { getAMPM } from '../../../util/time/time';
 import { fetchStableSlots, clearSlots } from '../../../actions/slot_actions';
 import { turnOnLoader, turnOffLoader } from '../../../actions/loader_actions';
 import StableSlots from './stable_slots';

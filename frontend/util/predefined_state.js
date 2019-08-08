@@ -21,7 +21,8 @@ export default (user) => {
             session: []
         },
         session: {
-            currentUserId: user.id
+            currentUserId: user.id,
+            region: user.riding_location
         }
     };
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import renderStars from '../../../util/render_stars';
-import ReadMore from '../../../util/read_more';
+import renderStars from '../../../util/render/render_stars';
+import ReadMore from '../../../util/render/read_more';
 
 export default ({ review, user }) => {
     const reviewColor = ['gray', 'dark', 'tan'][Math.floor(Math.random() * 3)];

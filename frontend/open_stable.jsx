@@ -8,6 +8,8 @@ import predefinedState from './util/predefined_state';
 import { fetchStablesAndSlots } from './actions/slot_actions';
 // TESTING IMPORTS
 
+document.title = 'OpenStable';
+
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
