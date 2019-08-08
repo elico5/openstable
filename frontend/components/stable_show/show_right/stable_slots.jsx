@@ -1,8 +1,16 @@
 import React from 'react';
-import { RESERVATION_CONFIRMATION_FLAG, turnOnModal } from '../../../actions/modal_actions';
+import { RESERVATION_CONFIRMATION_FLAG, turnOnModal, LOGIN_FORM_FLAG } from '../../../actions/modal_actions';
+import { getAMPM } from '../../../util/reservation_form_params';
 import { connect } from 'react-redux';
 
-const StableSlots = ({ slots, turnOnConfirmationModal }) => {
+const StableSlots = ({ slots, userId, turnOnConfirmationModal, turnOnLoginModal }) => {
+    const initiateModal = slot => {
+        if (userId) {
+            turnOnConfirmationModal(slot);
+        } else {
+            turnOnLoginModal()
+        }
+    };
     if (!slots) {
         return null;
     } else if (slots.constructor === Object && Object.entries(slots).length === 0) {
@@ -13,11 +21,11 @@ const StableSlots = ({ slots, turnOnConfirmationModal }) => {
         );
     } else {
         const slotButtons = Object.values(slots).sort((slot1, slot2) => {
-            return slot1.time > slot2.time ? 1 : -1
+            return slot1.time > slot2.time ? 1 : -1;
         }).map((slot, i) => {
             return <button key={i}
                 className='slot-button'
-                onClick={() => turnOnConfirmationModal(slot)}>{slot.time}</button>;
+                onClick={() => initiateModal(slot)}>{getAMPM(slot.time)}</button>;
         });
         return (
             <div className='slot-buttons-container'>
@@ -27,16 +35,17 @@ const StableSlots = ({ slots, turnOnConfirmationModal }) => {
     }
 };
 
-const mapStateToProps = ({ entities }, { stableId }) => {
-    debugger
+const mapStateToProps = ({ entities, session }, { stableId }) => {
     return {
-        slots: entities.slots[stableId]
+        slots: entities.slots[stableId],
+        userId: session.currentUserId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        turnOnConfirmationModal: info => dispatch(turnOnModal(RESERVATION_CONFIRMATION_FLAG, info))
+        turnOnConfirmationModal: info => dispatch(turnOnModal(RESERVATION_CONFIRMATION_FLAG, info)),
+        turnOnLoginModal: () => dispatch(turnOnModal(LOGIN_FORM_FLAG))
     };
 };
 

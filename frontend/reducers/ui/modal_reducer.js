@@ -8,6 +8,6 @@ export default (state = {}, action) => {
         case TURN_OFF_MODAL:
             return {};
         default:
-            return {};
+            return state;
     }
 };

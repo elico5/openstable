@@ -11,3 +11,17 @@ export const fetchStableSlots = (stableId, date, time, party_size) => {
         }
     });
 };
+
+export const fetchStablesAndSlots = (regionId, date, time, party_size) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/regions/${regionId}/slots`,
+        data: {
+            query: {
+                date,
+                party_size,
+                time
+            }
+        }
+    });
+};

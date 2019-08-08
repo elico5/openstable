@@ -149,3 +149,33 @@
     width: 100%;
     height: auto;
 }
+
+.feature-img-container:hover {
+    cursor: pointer;
+}
+
+.featured-region-label {
+    position: absolute;
+    color: white;
+    font-weight: 900;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 100%;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.home-search-container {
+    position: absolute;
+}
+
+
+

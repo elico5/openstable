@@ -1,12 +1,16 @@
 import React from 'react';
 import { fetchHomepageStables } from '../../actions/stable_actions';
+import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions'
 import regionIdToString from '../../util/region_id_to_string';
 import FeaturedStableItem from './featured_stable_item';
 import { connect } from 'react-redux';
 
 class FeaturedStables extends React.Component {
     componentDidMount() {
-        this.props.fetchHomepageStables();
+        this.props.turnOnLoader();
+        this.props.fetchHomepageStables().then(
+            () => this.props.turnOffLoader()
+        );
     }
 
     render() {
@@ -39,7 +43,9 @@ const mapStateToProps = ({ entities }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchHomepageStables: () => dispatch(fetchHomepageStables())
+        fetchHomepageStables: () => dispatch(fetchHomepageStables()),
+        turnOnLoader: () => dispatch(turnOnLoader()),
+        turnOffLoader: () => dispatch(turnOffLoader())
     };
 };
 

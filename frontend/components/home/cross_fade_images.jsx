@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeSearch from './home_search';
 
 export default () => {
     return (
@@ -7,6 +8,9 @@ export default () => {
             <img src={window.splash2URL} />
             <img src={window.splash3URL} />
             <img src={window.splash4URL} />
+            <div className='home-search-container'>
+                <HomeSearch />
+            </div>
         </div>
     );
 };

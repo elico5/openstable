@@ -34,7 +34,7 @@ const Modal = ({ modal, turnOffModal }) => {
 const mapStateToProps = ({ ui }) => {
     return {
         modal: ui.modal
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {

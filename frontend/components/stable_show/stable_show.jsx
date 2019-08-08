@@ -3,12 +3,16 @@ import ShowBanner from './show_banner';
 import ShowContent from './show_content';
 import { selectStable } from '../../util/selectors';
 import { fetchStable } from '../../actions/stable_actions';
+import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions';
 import { connect } from 'react-redux';
 
 class StableShow extends React.Component {
 
     componentDidMount() {
-        this.props.fetchStable(this.props.match.params.stableId);
+        this.props.turnOnLoader();
+        this.props.fetchStable(this.props.match.params.stableId).then(
+            () => this.props.turnOffLoader()
+        );
         const toggleStickyClass = () => {
             const mainContainer = document.getElementById('show-content');
             const reservationForm = document.getElementById('reservation-form');
@@ -56,7 +60,9 @@ const mapStateToProps = ({ entities }, { match }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchStable: stableId => dispatch(fetchStable(stableId))
+        fetchStable: stableId => dispatch(fetchStable(stableId)),
+        turnOnLoader: () => dispatch(turnOnLoader()),
+        turnOffLoader: () => dispatch(turnOffLoader())
     };
 };
 

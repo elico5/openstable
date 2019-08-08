@@ -1,0 +1,136 @@
+.search-banner-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+}
+
+.search-banner-image {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+.search-content-outer-container {
+    width: 100%;
+    height: max-content;
+    margin-top: 30px;
+}
+
+.search-content-inner-container {
+    width: calc(100% - 300px);
+    margin: 0 150px;
+    display: flex;
+}
+
+.search-detail-outer-container {
+    width: 20%;
+    height: 100px;
+    background-color: black;
+    margin-right: 15px;
+}
+
+.search-results-outer-container {
+    width: 80%;
+    height: max-content;
+    margin-left: 15px;
+}
+
+.search-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.search-item-container:nth-of-type(1) {
+    padding-top: 0;
+}
+
+.search-item-image-container {
+    width: 25%;
+    height: max-content;
+}
+
+.search-item-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.search-item-image:hover {
+    cursor: pointer;
+}
+
+.search-item-detail-container {
+    width: calc(75% - 20px);
+    margin-left: 20px;
+}
+
+
+.search-item-detail-name {
+    font-size: 24px;
+    font-weight: 900;
+    color: #B8A68E;
+    margin-bottom: 5px;
+}
+
+.search-item-detail-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.search-item-detail-upper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.search-item-detail-upper-left .index-item-stars {
+    display: inline;
+    margin-right: 5px;
+}
+
+.search-item-detail-upper-left .unfilled {
+    color: #ccc;
+}
+
+.search-item-detail-upper-left .filled {
+    color: #B8A68E;
+}
+
+.search-item-detail-upper-right {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+}
+
+.search-item-detail-upper-right .unfilled {
+    color: #ccc;
+}
+
+.interpunct {
+    margin: 0px 5px;
+}
+
+.search-item-detail-upper-left .fa-comments, .search-item-detail-upper-left .fa-chart-line {
+    margin-right: 3px;
+}
+
+.search-item-detail-lower-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.search-results-container {
+    margin-bottom: 10px;
+}
+
+.no-results-container {
+    font-size: 20px;
+    font-weight: 900;
+}

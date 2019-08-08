@@ -15,7 +15,7 @@ export default (user) => {
             }
         },
         ui: {
-            modal: null
+            modal: {}
         },
         errors: {
             session: []

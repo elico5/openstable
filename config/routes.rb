@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :stables, only: [:show, :index]
     get '/stables/:stable_id/slots', to: 'slots#show'
+    get '/regions/:region_id/slots', to: 'slots#index'
   end
 
 end

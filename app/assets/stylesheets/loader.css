@@ -1,0 +1,38 @@
+.loader-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-foreground {
+    position: fixed;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-top: 20px solid #B8A68E;
+    border-bottom: 20px solid #B8A68E;
+    border-left: 20px solid #2D333F;
+    border-right: 20px solid #2D333F;
+    animation: spin 3s linear infinite;
+    z-index: 15;
+}
+
+.loader-background .fa-horse {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 37px);
+    font-size: 100px;
+    color: #B8A68E;
+    z-index: 15;
+}
