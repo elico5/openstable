@@ -4,6 +4,7 @@ class Api::StablesController < ApplicationController
         @stable = Stable.includes(
             :groom,
             { reviews: [{reservation: [{ user: [:reviews] }] }] }).with_attached_picture.find(params[:id])
+        @current_user_id = stable_params[:currentUserId].to_i
         render :show
     end
 
@@ -16,6 +17,12 @@ class Api::StablesController < ApplicationController
             @stables = Stable.includes(:reviews, :reservations_today).all
         end
         render :index
+    end
+
+    private
+
+    def stable_params
+        params.require(:user).permit(:currentUserId)
     end
 
 end

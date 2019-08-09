@@ -1,0 +1,1 @@
+json.extract! @favorite, :stable_id, :user_id

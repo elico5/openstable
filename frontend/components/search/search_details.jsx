@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAMPM } from '../../util/time/time';
-import regionIdToString from '../../util/region_id_to_string';
+import regionIdToString from '../../util/render/region_id_to_string';
 
 export default ({ region, date, time, partySize }) => {
     return (

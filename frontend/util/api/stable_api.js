@@ -1,7 +1,12 @@
-export const fetchStable = id => {
+export const fetchStable = (id, currentUserId) => {
     return $.ajax({
         method: 'GET',
-        url: `/api/stables/${id}`
+        url: `/api/stables/${id}`,
+        data: {
+            user: {
+                currentUserId
+            }
+        }
     });
 };
 

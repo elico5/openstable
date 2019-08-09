@@ -84,6 +84,14 @@
     margin: 15px 0;
 }
 
+.reservation-form-inner-container #party-size-select {
+    font-size: 16px;
+}
+
+.reservation-form-inner-container #party-size-select:hover {
+    cursor: pointer;
+}
+
 .reservation-form-inner-container select {
     width: 100%;
     border: none;
@@ -113,10 +121,19 @@
     width: 100%;
 }
 
-.reservation-lower-inputs .date-input {
+.reservation-lower-inputs #date-input {
     height: 35px;
     width: 100%;
     border: none;
+    font-size: 16px;
+}
+
+.reservation-lower-inputs #date-input:hover, .reservation-lower-inputs #time-select:hover {
+    cursor: pointer;
+}
+
+.reservation-lower-inputs #time-select {
+    font-size: 16px;
 }
 
 .reservation-form-inner-container .reservation-form-submit {

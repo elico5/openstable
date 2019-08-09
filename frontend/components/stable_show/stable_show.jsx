@@ -7,10 +7,9 @@ import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions';
 import { connect } from 'react-redux';
 
 class StableShow extends React.Component {
-
     componentDidMount() {
         this.props.turnOnLoader();
-        this.props.fetchStable(this.props.match.params.stableId).then(
+        this.props.fetchStable(this.props.match.params.stableId, this.props.currentUserId).then(
             () => this.props.turnOffLoader()
         );
         const toggleStickyClass = () => {
@@ -30,7 +29,7 @@ class StableShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (!prevProps.stable || prevProps.stable.id != this.props.match.params.stableId) {
-            this.props.fetchStable(this.props.match.params.stableId);
+            this.props.fetchStable(this.props.match.params.stableId, this.props.currentUserId);
         }
     }
 
@@ -48,19 +47,21 @@ class StableShow extends React.Component {
     }
 };
 
-const mapStateToProps = ({ entities }, { match }) => {
+const mapStateToProps = ({ entities, session }, { match }) => {
     const stableId = parseInt(match.params.stableId);
+    const currentUserId = session.currentUserId;
     const { stable, stableReviews, stableUsers } = selectStable(entities, stableId);
     return {
         stable,
         stableReviews,
-        stableUsers
+        stableUsers,
+        currentUserId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchStable: stableId => dispatch(fetchStable(stableId)),
+        fetchStable: (stableId, currentUserId) => dispatch(fetchStable(stableId, currentUserId)),
         turnOnLoader: () => dispatch(turnOnLoader()),
         turnOffLoader: () => dispatch(turnOffLoader())
     };

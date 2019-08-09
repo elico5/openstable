@@ -37,13 +37,13 @@ else
 
     json.users do
         @stable.reviews.each do |review|
-            json.set! review.reservation.user.id do
-                json.id review.reservation.user.id
-                json.email review.reservation.user.email
-                json.first_name review.reservation.user.first_name
-                json.last_name review.reservation.user.last_name
-                json.reviewCount review.reservation.user.reviews.size
-                json.phone_number review.reservation.user.phone_number
+            if review.user.id != @current_user_id
+                json.set! review.reservation.user.id do
+                    json.id review.reservation.user.id
+                    json.first_name review.reservation.user.first_name
+                    json.last_name review.reservation.user.last_name
+                    json.reviewCount review.reservation.user.reviews.size
+                end
             end
         end
     end

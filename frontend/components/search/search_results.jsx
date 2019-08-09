@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchResultItem from './search_result_item';
-import regionIdToString from '../../util/region_id_to_string';
+import regionIdToString from '../../util/render/region_id_to_string';
 import { connect } from 'react-redux';
 
 const SearchResults = ({ stables, slots, region }) => {

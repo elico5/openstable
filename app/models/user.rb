@@ -10,6 +10,7 @@ class User < ApplicationRecord
     has_one :stable, foreign_key: :groom_id
     has_many :reservations
     has_many :reviews, through: :reservations, source: :review
+    has_many :favorites
 
     after_initialize :ensure_session_token
 

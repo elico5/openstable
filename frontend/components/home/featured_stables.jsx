@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchHomepageStables } from '../../actions/stable_actions';
 import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions'
-import regionIdToString from '../../util/region_id_to_string';
+import regionIdToString from '../../util/render/region_id_to_string';
 import FeaturedStableItem from './featured_stable_item';
 import { connect } from 'react-redux';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MapStyles from '../../../util/map_style';
+import MapStyles from '../../../util/render/map_style';
 
 class Map extends React.Component {
     constructor(props) {

@@ -17,8 +17,8 @@ export const receiveStables = stables => {
     };
 };
 
-export const fetchStable = stableId => dispatch => {
-    return StableAPI.fetchStable(stableId).then(
+export const fetchStable = (stableId, currentUserId) => dispatch => {
+    return StableAPI.fetchStable(stableId, currentUserId).then(
         payload => dispatch(receiveStable(payload))
     );
 };

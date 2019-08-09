@@ -1,5 +1,5 @@
 import React from 'react';
-import regionIdToString from '../../util/region_id_to_string';
+import regionIdToString from '../../util/render/region_id_to_string';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 

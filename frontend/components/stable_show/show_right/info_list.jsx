@@ -1,5 +1,5 @@
 import React from 'react';
-import timeFix from '../../../util/time_fix';
+import { timeFix } from '../../../util/time/time';
 
 export default ({ phone_number, open_time, close_time, groomName }) => {
     open_time = timeFix(open_time);

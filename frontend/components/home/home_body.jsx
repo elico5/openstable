@@ -2,7 +2,7 @@ import React from 'react';
 import CrossFadeImages from './cross_fade_images';
 import FeaturedStables from './featured_stables';
 import FeaturedRegions from './featured_regions';
-import regionIdToString from '../../util/region_id_to_string';
+import regionIdToString from '../../util/render/region_id_to_string';
 import { REGION_CHANGE_FLAG, turnOnModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 

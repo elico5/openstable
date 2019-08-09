@@ -39,3 +39,23 @@ const mapStateToSearchProps = (state, { location }) => {
 };
 
 export const SearchRoute = withRouter(connect(mapStateToSearchProps)(Search));
+
+const Protected = ({ component: Component, path, loggedIn }) => {
+    return (
+        <Route path={path} render={(props) => (
+        loggedIn ? (
+            <Component {...props} />
+        ) : (
+            <Redirect to='/' />
+        )
+        )}/>
+    );
+};
+
+const mapProtectedStateToProps = ({ session }) => {
+    return {
+        loggedIn: Boolean(session.currentUserId)
+    };
+};
+
+export const ProtectedRoute = withRouter(connect(mapProtectedStateToProps)(Protected));

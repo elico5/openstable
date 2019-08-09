@@ -1,6 +1,6 @@
 import React from 'react';
 import renderStars from '../../util/render/render_stars';
-import priceCategory from '../../util/price_category';
+import priceCategory from '../../util/render/price_category';
 import { withRouter } from 'react-router-dom';
 
 const FeaturedStableItem = ({ stable, history }) => {

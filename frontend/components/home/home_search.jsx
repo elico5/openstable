@@ -1,7 +1,6 @@
 import React from 'react';
 import { getSearchPathFromState } from '../../util/search/query_string';
-import { generatePartySizes, getTodayStringDate, getTimeOptions, getOneMonthStringDate, getRegionOptions } from '../../util/search/generate_form_params';
-import { getHomeSearchDateAndTime } from '../../util/search/generate_home_search_params';
+import { getHomeSearchDateAndTime, generatePartySizes, getTodayStringDate, getTimeOptions, getOneMonthStringDate, getRegionOptions } from '../../util/search/generate_form_params';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 

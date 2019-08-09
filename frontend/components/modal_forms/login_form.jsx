@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
                 clearInterval(intervalId);
                 this.submitDemoUser();
             }
-        }, 80);
+        }, 60);
     }
 
     submitDemoUser() {
