@@ -197,3 +197,12 @@
 #region-change-select:hover {
     cursor: pointer;
 }
+
+.reservation-error {
+    color: #DA3743;
+    text-align: center;
+}
+
+.reservation-detail-line .icon {
+    margin-right: 5px;
+}

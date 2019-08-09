@@ -7,6 +7,7 @@ import HomeBody from './home/home_body';
 import StableShow from './stable_show/stable_show';
 import { SearchRoute, ProtectedRoute } from '../util/routes/custom_routes';
 import Search from './search/search';
+import UserProfile from './profile/user_profile';
 import Footer from './footer/footer';
 
 const App = () => {

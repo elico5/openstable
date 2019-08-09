@@ -15,10 +15,12 @@ export default (user) => {
             }
         },
         ui: {
-            modal: {}
+            modal: {},
+            loader: false
         },
         errors: {
-            session: []
+            session: [],
+            reservations: []
         },
         session: {
             currentUserId: user.id,

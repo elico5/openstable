@@ -90,6 +90,10 @@
     padding: 15px;
 }
 
+#user-dropdown div:nth-of-type(1) {
+    border-bottom: 1px solid #ccc;
+}
+
 #user-dropdown div:hover {
     background-color: #f2f2f2;
 }

@@ -3,8 +3,8 @@ import FavoriteButton from './show_right/favorite_button';
 
 export default () => {
     return (
-        <div class='banner-img-container'>
-            <img src={window.showBannerURL} />
+        <div className='show-banner-img-container'>
+            <img className='show-banner-img' src={window.showBannerURL} />
             <FavoriteButton />
         </div>
     );

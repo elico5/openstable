@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, turnOnModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom';
 
-const NavRight = ({user, currentUserId, turnOnModal, logout}) => {
+const NavRight = ({ user, currentUserId, turnOnModal, logout, history }) => {
     if (currentUserId) {
         const toggleDropdown = () => {
             const dropdownElement = document.getElementById('user-dropdown');
@@ -20,6 +21,7 @@ const NavRight = ({user, currentUserId, turnOnModal, logout}) => {
                         Hi, {user.first_name} <i className='fas fa-chevron-down'></i>
                     </div>
                     <div id='user-dropdown'>
+                        <div onClick={() => history.push('/my/profile')}>My Profile</div>
                         <div onClick={logout}>Sign Out</div>
                     </div>
                 </div>
@@ -37,10 +39,11 @@ const NavRight = ({user, currentUserId, turnOnModal, logout}) => {
     }
 };
 
-const mapStateToProps = ({ entities, session }) => {
+const mapStateToProps = ({ entities, session }, { history }) => {
     return {
         user: entities.users[session.currentUserId],
-        currentUserId: session.currentUserId
+        currentUserId: session.currentUserId,
+        history
     };
 };
 
@@ -51,4 +54,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavRight);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavRight));

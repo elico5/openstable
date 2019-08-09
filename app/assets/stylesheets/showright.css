@@ -1,4 +1,4 @@
-.banner-img-container {
+.show-banner-img-container {
     right: 0;
     left: 0;
     height: 300px;
@@ -6,7 +6,7 @@
     position: relative;
 }
 
-.banner-img-container img {
+.show-banner-img-container .show-banner-img {
     position: absolute;
     width: 1400px;
     height: auto;
