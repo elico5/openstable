@@ -14,7 +14,7 @@ class Api::StablesController < ApplicationController
         elsif params[:search]
 
         else
-            @stables = Stable.includes(:reviews, :reservations_today).all
+            @stables = Stable.includes(:reviews, :reservations_today).limit(10)
         end
         render :index
     end
