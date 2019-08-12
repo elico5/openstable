@@ -33,30 +33,33 @@ class Stable < ApplicationRecord
     end
 
     def get_lat_lng
-        base_url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-        query_string = [street_address.split(" ").join("+"), city.split(" ").join("+"), state].join(",+")
-        access = "&key=#{Rails.application.credentials.gmaps[:api_key]}"
-        url = base_url + query_string + access
-        response = JSON.parse(open(url).read)
-        self.lat = response["results"][0]["geometry"]["location"]["lat"]
-        self.lng = response["results"][0]["geometry"]["location"]["lng"]
+        if new_record?
+            base_url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+            query_string = [street_address.split(" ").join("+"), city.split(" ").join("+"), state].join(",+")
+            access = "&key=#{Rails.application.credentials.gmaps[:api_key]}"
+            url = base_url + query_string + access
+            response = JSON.parse(open(url).read)
+            self.lat = response["results"][0]["geometry"]["location"]["lat"]
+            self.lng = response["results"][0]["geometry"]["location"]["lng"]
+        end
     end
 
     def get_region
-        states_NE = ["ME", "DE", "NH", "VT", "MA", "RI", "MD", "CT", "NY", "NJ", "PA", "DC"]
-        states_SE = ["FL", "GA", "SC", "NC", "VA", "WV", "KY", "TN", "AL", "MS", "LA", "AR"]
-        states_MW = ["ND", "SD", "NE", "KS", "MN", "IA", "MO", "WI", "MI", "OH", "IL", "IN"]
-        states_SW = ["TX", "OK", "NM", "AZ"]
-        states_W = ["CO", "WY", "MT", "ID", "WA", "OR", "NV", "UT", "CA"]
-        regions = [states_NE, states_SE, states_MW, states_SW, states_W]
-        region_id = 0
-        regions.each_with_index do |states, i|
-            if states.include?(state)
-                region_id = i + 1
-                break
+        if new_record?
+            states_NE = ["ME", "DE", "NH", "VT", "MA", "RI", "MD", "CT", "NY", "NJ", "PA", "DC"]
+            states_SE = ["FL", "GA", "SC", "NC", "VA", "WV", "KY", "TN", "AL", "MS", "LA", "AR"]
+            states_MW = ["ND", "SD", "NE", "KS", "MN", "IA", "MO", "WI", "MI", "OH", "IL", "IN"]
+            states_SW = ["TX", "OK", "NM", "AZ"]
+            states_W = ["CO", "WY", "MT", "ID", "WA", "OR", "NV", "UT", "CA"]
+            regions = [states_NE, states_SE, states_MW, states_SW, states_W]
+            region_id = 0
+            regions.each_with_index do |states, i|
+                if states.include?(state)
+                    region_id = i + 1
+                    break
+                end
             end
+            self.region = region_id
         end
-        self.region = region_id
     end
-
 end
