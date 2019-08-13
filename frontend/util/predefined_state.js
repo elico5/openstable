@@ -1,8 +1,8 @@
-export default (user) => {
+export default (payload) => {
     return {
         entities: {
             users: {
-                [user.id]: user
+                [payload.user.id]: payload.user
             },
             stables: {
 
@@ -12,7 +12,8 @@ export default (user) => {
             },
             reviews: {
 
-            }
+            },
+            favorites: payload.favorites
         },
         ui: {
             modal: {},
@@ -23,8 +24,8 @@ export default (user) => {
             reservations: []
         },
         session: {
-            currentUserId: user.id,
-            region: user.riding_location
+            currentUserId: payload.user.id,
+            region: payload.user.riding_location
         }
     };
 };

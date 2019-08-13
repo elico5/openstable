@@ -5,10 +5,10 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CHANGE_SESSION_REGION = 'CHANGE_SESSION_REGION';
 
-export const loginUser = user => {
+export const loginUser = payload => {
     return {
         type: LOGIN_USER,
-        user
+        payload
     };
 };
 
@@ -36,14 +36,14 @@ export const receiveSessionErrors = errors => {
 
 export const signup = user => dispatch => {
     return SessionAPI.signup(user).then(
-        user => dispatch(loginUser(user)),
+        payload => dispatch(loginUser(payload)),
         errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };
 
 export const login = user => dispatch => {
     return SessionAPI.login(user).then(
-        user => dispatch(loginUser(user)),
+        payload => dispatch(loginUser(payload)),
         errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };

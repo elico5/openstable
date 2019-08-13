@@ -18,7 +18,7 @@ const FeaturedStableItem = ({ stable, history }) => {
                 <span className='review-count'>{stable.reviewCount} reviews</span>
             </div>
             <div className='price-reservation-count'>
-                {priceCategory(stable.price)}  •  <i class='fas fa-chart-line' />{stable.bookingsToday} bookings today
+                {priceCategory(stable.price)}  •  <i className='fas fa-chart-line' />{stable.bookingsToday} bookings today
             </div>
         </div>
     );

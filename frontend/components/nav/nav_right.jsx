@@ -11,10 +11,13 @@ const NavRight = ({ user, currentUserId, turnOnModal, logout, history }) => {
             dropdownElement.style.display = dropdownElement.style.display === '' ?
                 'block' : '';
         };
+        const redirectToUpcoming = () => {
+            history.push('/my/profile/upcoming-reservations');
+        };
         return (
             <div className='logged-in-nav-right'>
                 <div>
-                    <i className='fas fa-calendar-alt'></i>
+                    <i onClick={redirectToUpcoming} className='fas fa-calendar-alt'></i>
                 </div>
                 <div className='dropdown-container' onClick={toggleDropdown}>
                     <div className='toggle-dropdown'>

@@ -26,7 +26,9 @@ class Api::ReservationsController < ApplicationController
     end
 
     def update
-
+        @reservation = Reservation.find(params[:id])
+        @reservation.update!(cancelled: true)
+        render :show
     end
 
     private

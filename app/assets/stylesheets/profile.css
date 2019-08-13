@@ -24,10 +24,26 @@
     position: relative;
     margin: 0 auto;
     top: -52px;
-    height: 200px;
+    min-height: 500px;
     background-color: white;
     width: 75%;
     border-radius: 4px;
+}
+
+.profile-content-inner-container .fa-clock {
+    margin-right: 5px;
+}
+
+.profile-content-inner-container .fa-map-marker-alt {
+    margin-right: 5px;
+}
+
+.profile-content-inner-container .fa-horse {
+    margin-right: 5px;
+}
+
+.profile-content-inner-container .fa-globe-americas {
+    margin-right: 5px;
 }
 
 .tab-nav-bar {
@@ -51,7 +67,6 @@
 
 .tab-nav-tab:nth-of-type(1) {
     border-top-left-radius: 4px;
-    background-color: white;
     border-right: 0;
 }
 
@@ -68,4 +83,256 @@
 .tab-nav-tab:hover {
     cursor: pointer;
     background-color: #B8A68E;
+}
+
+.active-tab {
+    background-color: white;
+    border-bottom: none;
+}
+
+.my-user-information-container {
+    width: 700px;
+    height: max-content;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.user-info-form-heading {
+    font-size: 24px;
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.user-info-link-text {
+    color: #B8A68E;
+    font-size: 18px;
+}
+
+.user-info-link-text:hover {
+    cursor: pointer;
+}
+
+.first-last-form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.first-last-form-container .user-info-first, .first-last-form-container .user-info-last {
+    width: calc(50% - 5px);
+}
+
+.first-last-form-container input {
+    width: calc(100% - 5px);
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-info-form-label {
+    color: #ccc;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.user-info-other-container {
+    margin-top: 20px;
+}
+
+.user-info-other-container input {
+    width: calc(100% - 4px);
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-info-other-container select {
+    width: calc(100%);
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-info-form-hr {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.password-explanation {
+    margin-top: 5px;
+}
+
+.user-info-form-submit {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #B8A68E;
+    color: white;
+    border: 0;
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.user-info-form-submit:hover {
+    cursor: pointer;
+    background-color: #2D333F;
+}
+
+#information, #upcoming-reservations, #past-reservations, #reviews, #favorites {
+    display: none;
+}
+
+.active-content {
+    display: block !important;
+}
+
+.my-favorites-container, .my-upcoming-reservations-container, .my-past-reservations-container {
+    width: 700px;
+    height: max-content;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.favorite-list-item-container, .upcoming-reservation-item-container, .past-reservation-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.favorite-stable-image-container, .upcoming-reservation-image-container, .past-reservation-image-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.favorite-stable-image-container:hover, .upcoming-reservation-image-container:hover, .past-reservation-image-container:hover {
+    cursor: pointer;
+}
+
+.favorite-stable-image, .upcoming-reservation-stable-image, .past-reservation-stable-image {
+    width: 100%;
+    height: 100%;
+}
+
+.favorite-stable-info-container, .upcoming-reservation-info-container, .past-reservation-info-container {
+    width: 250px;
+}
+
+.favorite-stable-info-container .unfilled {
+    color: #ccc;
+}
+
+.favorite-stable-info-container .filled {
+    color: #B8A68E;
+}
+
+.favorite-stable-stars, .favorite-stable-region, .favorite-stable-location {
+    margin: 3px 0;
+}
+
+.upcoming-reservation-date-time, .upcoming-reservation-location, .upcoming-reservation-size {
+    margin: 3px 0;
+}
+
+.past-reservation-date-time, .past-reservation-location, .past-reservation-size {
+    margin: 3px 0;
+}
+
+.favorite-stable-name, .upcoming-reservation-stable-name, .past-reservation-stable-name {
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.favorite-stable-name:hover, .upcoming-reservation-stable-name:hover, .past-reservation-stable-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.favorite-stable-buttons-container, .upcoming-reservation-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favorite-stable-buttons-container button {
+    margin: 10px 0;
+    width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    border: none;
+    color: white;
+}
+
+.cancel-reservation-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    border: none;
+    color: white;
+    background-color: #B8A68E;
+}
+
+.cancelled-reservation-button, .reviewed-reservation-button, .reviewable-reservation-button, .unreviewable-reservation-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    border: none;
+    color: white;
+}
+
+.cancelled-reservation-button, .unreviewable-reservation-button {
+    background-color: #ccc;
+}
+
+.reviewed-reservation-button {
+    background-color: #2D333F;
+}
+
+.reviewable-reservation-button {
+    background-color: #B8A68E;
+}
+
+.fa-check-circle, .fa-window-close {
+    margin-right: 5px;
+    color: white;
+}
+
+.favorite-stable-buttons-container button:hover {
+    cursor: pointer;
+    filter: brightness(85%);
+}
+
+.cancel-reservation-button:hover, .reviewed-reservation-button:hover, .reviewable-reservation-button:hover {
+    cursor: pointer;
+    filter: brightness(85%);
+}
+
+.favorite-stable-buttons-container .reservation-button {
+    background-color: #B8A68E;
+}
+
+.favorite-stable-buttons-container .unfavorite-button {
+    background-color: #2D333F;
+}
+
+.favorite-stable-buttons-container .fa-bookmark {
+    color: white;
+}
+
+.no-current-favorites, .no-upcoming-reservations, .no-past-reservations {
+    font-size: 18px;
+    font-weight: 900;
 }

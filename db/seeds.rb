@@ -21,7 +21,7 @@ seed_user2 = User.create(
     first_name: 'Davey',
     last_name: 'Jameson',
     email: 'daveywhisk@gmail.com',
-    password: 'password',
+    password: 'password', #hellomyfriend
     phone_number: '',
     riding_location: 1)
 

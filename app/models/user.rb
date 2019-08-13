@@ -4,6 +4,7 @@ class User < ApplicationRecord
     validates :phone_number, length: { minimum: 10, maximum: 15 }, allow_blank: true
     validates :password_digest, presence: true
     validates :password, length: { minimum: 6 }, allow_nil: true
+    validates :riding_location, presence: true, inclusion: { in: 0..5 }
 
     attr_reader :password
 

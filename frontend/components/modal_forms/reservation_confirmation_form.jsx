@@ -8,7 +8,7 @@ import { getAMPM } from '../../util/time/time';
 const ReservationConfirmationForm = ({ stable, slot, turnOffModal, error, history, createReservation }) => {
     const redirect = () => {
         turnOffModal();
-        history.push('/');
+        history.push('/my/profile/upcoming-reservations');
     };
     const confirmReservation = () => {
         const { stableId, userId, date, time, partySize } = slot;

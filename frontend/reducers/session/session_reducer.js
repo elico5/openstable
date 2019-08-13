@@ -7,8 +7,8 @@ export default (state = nullState, action) => {
     switch(action.type) {
         case LOGIN_USER:
             return { 
-                currentUserId: action.user.id,
-                region: action.user.riding_location
+                currentUserId: action.payload.user.id,
+                region: action.payload.user.riding_location
             };
         case LOGOUT_USER:
             return nullState;

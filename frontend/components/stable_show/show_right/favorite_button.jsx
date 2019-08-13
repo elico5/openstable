@@ -5,7 +5,7 @@ import { turnOnLoader, turnOffLoader } from '../../../actions/loader_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const FavoriteButton = ({ currentUserId, stableId, favoritedStableIds, favorite, unfavorite, turnOnLoginModal, turnOnLoader, turnOffLoader }) => {
+const FavoriteButton = ({ currentUserId, stableId, favorites, favorite, unfavorite, turnOnLoginModal, turnOnLoader, turnOffLoader }) => {
     const loadFavorite = (stableId, userId) => {
         turnOnLoader();
         favorite(stableId, userId).then(() => turnOffLoader());
@@ -21,7 +21,7 @@ const FavoriteButton = ({ currentUserId, stableId, favoritedStableIds, favorite,
                 Favorite this stable
             </button>
         );
-    } else if (favoritedStableIds.includes(stableId)) {
+    } else if (favorites.includes(stableId)) {
         return (
             <button onClick={() => loadUnfavorite(stableId, currentUserId)} className='favorite-stable-button'>
                 <i className='far fa-bookmark'></i>
@@ -39,13 +39,13 @@ const FavoriteButton = ({ currentUserId, stableId, favoritedStableIds, favorite,
 };
 
 const mapStateToProps = ({ entities, session }, { match }) => {
-    const { users } = entities;
+    const { favorites } = entities;
     const currentUserId = session.currentUserId;
     if (currentUserId) {
         return {
             currentUserId,
             stableId: parseInt(match.params.stableId),
-            favoritedStableIds: users[currentUserId].favoritedStableIds
+            favorites
         };
     } else {
         return {

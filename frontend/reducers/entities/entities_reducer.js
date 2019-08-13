@@ -4,11 +4,13 @@ import stablesReducer from './stables_reducer';
 import reservationsReducer from './reservations_reducer';
 import reviewsReducer from './reviews_reducer';
 import slotsReducer from './slots_reducer';
+import favoritesReducer from './favorites_reducer';
 
 export default combineReducers({
     users: usersReducers,
     stables: stablesReducer,
     reservations: reservationsReducer,
     reviews: reviewsReducer,
-    slots: slotsReducer
+    slots: slotsReducer,
+    favorites: favoritesReducer
 });
