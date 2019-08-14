@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, RESERVATION_CONFIRMATION_FLAG, REGION_CHANGE_FLAG, turnOffModal } from '../../actions/modal_actions';
+import { LOGIN_FORM_FLAG, SIGN_UP_FORM_FLAG, RESERVATION_CONFIRMATION_FLAG, REGION_CHANGE_FLAG, REVIEW_FORM_FLAG, turnOffModal } from '../../actions/modal_actions';
 import LoginForm from '../modal_forms/login_form';
 import SignUpForm from '../modal_forms/sign_up_form';
 import ReservationConfirmationForm from '../modal_forms/reservation_confirmation_form';
 import RegionChangeForm from '../modal_forms/region_change_form';
+import ReviewForm from '../modal_forms/review_form';
 
 const Modal = ({ modal, turnOffModal }) => {
     if (modal.constructor === Object && Object.entries(modal).length === 0) return null;
@@ -21,6 +22,9 @@ const Modal = ({ modal, turnOffModal }) => {
             break;
         case REGION_CHANGE_FLAG:
             modal_component = <RegionChangeForm />;
+            break;
+        case REVIEW_FORM_FLAG:
+            modal_component = <ReviewForm info={modal.info} />;
             break;
         default:
             return null;

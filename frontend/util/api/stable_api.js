@@ -10,9 +10,21 @@ export const fetchStable = (id, currentUserId) => {
     });
 };
 
-export const fetchHomepageStables = id => {
+export const fetchHomepageStables = regionId => {
     return $.ajax({
         method: 'GET',
-        url: '/api/stables'
+        url: '/api/stables',
+        data: {
+            region: {
+                regionId
+            }
+        }
+    });
+};
+
+export const fetchRegionStableCounts = () => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/regions'
     });
 };

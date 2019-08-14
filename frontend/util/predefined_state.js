@@ -21,7 +21,8 @@ export default (payload) => {
         },
         errors: {
             session: [],
-            reservations: []
+            reservations: [],
+            user: []
         },
         session: {
             currentUserId: payload.user.id,

@@ -9,14 +9,22 @@ class Api::StablesController < ApplicationController
     end
 
     def index
-        if params[:region_id]
-
-        elsif params[:search]
-
-        else
-            @stables = Stable.includes(:reviews, :reservations_today).limit(10)
-        end
+        @stables = Stable.includes(:reviews, :reservations_today, :reservations)
+            .left_joins(:reservations)
+            .where(region: params[:region][:regionId].to_i)
+            .group(:id)
+            .order('COUNT(reservations.id) DESC')
+            .limit(10)
         render :index
+    end
+
+    def regions
+        region_breakdowns = Stable.connection.select_rows('SELECT region, count(id) FROM stables GROUP BY region')
+        @region_breakdown_hash = Hash.new
+        region_breakdowns.each do |tuple|
+            @region_breakdown_hash[tuple[0]] = tuple[1]
+        end
+        render :regions
     end
 
     private

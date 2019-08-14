@@ -225,6 +225,15 @@
     margin: 5px 0;
 }
 
+.review-list-item-left-container .user-name {
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.review-list-item-left-container .user-region {
+    text-align: center;
+}
+
 .review-list-item-left-container .fa-comment {
     margin-right: 7px;
 }
@@ -269,4 +278,6 @@
 
 .review-body {
     padding-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
 }

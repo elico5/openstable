@@ -118,103 +118,6 @@ seed_stable2.picture.attach(io:file2, filename: "stable_#{seed_stable2.id}_pictu
 seed_stable3.picture.attach(io:file3, filename: "stable_#{seed_stable3.id}_picture")
 seed_stable4.picture.attach(io:file4, filename: "stable_#{seed_stable4.id}_picture")
 
-# Creating reservations (all at stable 2 - Collins Inn - at same time)
-seed_res1 = Reservation.create(
-    stable_id: seed_stable2.id,
-    user_id: demo_user.id,
-    date: '2019-08-04',
-    time: '09:00',
-    party_size: 1
-)
-seed_res2 = Reservation.create(
-    stable_id: seed_stable2.id,
-    user_id: seed_user1.id,
-    date: '2019-08-04',
-    time: '09:00',
-    party_size: 1
-)
-seed_res3 = Reservation.create(
-    stable_id: seed_stable2.id,
-    user_id: seed_user2.id,
-    date: '2019-08-04',
-    time: '09:00',
-    party_size: 1
-)
-seed_res4 = Reservation.create(
-    stable_id: seed_stable2.id,
-    user_id: seed_user3.id,
-    date: '2019-08-04',
-    time: '09:00',
-    party_size: 1
-)
-seed_res5 = Reservation.create(
-    stable_id: seed_stable2.id,
-    user_id: seed_user4.id,
-    date: '2019-08-04',
-    time: '09:00',
-    party_size: 2
-)
-
-# Creating reviews
-seed_rev1 = Review.create(
-    reservation_id: seed_res1.id,
-    overall: 5,
-    service: 5,
-    cleanliness: 5,
-    value: 5,
-    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
-)
-seed_rev2 = Review.create(
-    reservation_id: seed_res2.id,
-    overall: 4,
-    service: 4,
-    cleanliness: 4,
-    value: 4,
-    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
-)
-seed_rev3 = Review.create(
-    reservation_id: seed_res3.id,
-    overall: 3,
-    service: 3,
-    cleanliness: 3,
-    value: 3,
-    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
-)
-seed_rev4 = Review.create(
-    reservation_id: seed_res4.id,
-    overall: 2,
-    service: 2,
-    cleanliness: 2,
-    value: 2,
-    body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
-)
-seed_rev5 = Review.create(
-    reservation_id: seed_res5.id,
-    overall: 1,
-    service: 1,
-    cleanliness: 1,
-    value: 1,
-    body: 'Absolutely great stable I love bringing Brandon and Josh here.'
-)
-
-# Creating favorites (demo user favorites every stable)
-seed_fav1 = Favorite.create(
-    stable_id: seed_stable1.id,
-    user_id: demo_user.id
-)
-seed_fav2 = Favorite.create(
-    stable_id: seed_stable2.id,
-    user_id: demo_user.id
-)
-seed_fav3 = Favorite.create(
-    stable_id: seed_stable3.id,
-    user_id: demo_user.id
-)
-seed_fav4 = Favorite.create(
-    stable_id: seed_stable4.id,
-    user_id: demo_user.id
-)
-
 # jacob may stable
 jacob_may = User.create(
     first_name: 'Jacob',
@@ -892,3 +795,27 @@ ninepine = Stable.create(
 file = open('https://openstableseeds.s3.amazonaws.com/ninepine.jpg')
 ninepine.picture.attach(io:file, filename: "stable_#{ninepine.id}_picture")
 
+apolley = User.create(
+    first_name: 'Alfred',
+    last_name: 'Polley',
+    email: 'apolley@gmail.com',
+    password: 'password',
+    phone_number: '',
+    riding_location: 0)
+polley = Stable.create(
+    name: "A. M. Polley Livery Stable",
+    phone_number: '519-222-3242',
+    street_address: '57 West Street',
+    city: 'Goderich',
+    state: 'ON',
+    zip: 'N7A 2K5',
+    groom_id: apolley.id,
+    description: 'This block was the original site of W.F. Cody Transportation Company, Buffalo Bill’s own stagecoach line to the Black Hills. The first building was built in 1894 for the business, which ran from this location from 1894 until 1901. It was also used for a long period of time as the Sheridan Inn’s livery stables. In 1923 the old stables were torn down and today’s building, with its stone exterior and large windows, was built just down the block to house a garage. While it has changed hands over the years, it has continued to be used for transportation purposes, including automobile repair and body shops, car sales, and as a bus stop, fulfilling the building’s original purpose of bringing people into Sheridan.',
+    capacity: 15,
+    open_time: '06:00',
+    close_time: '23:30',
+    duration: 8,
+    price: 6
+)
+file = open('https://openstableseeds.s3.amazonaws.com/polley.jpg')
+polley.picture.attach(io:file, filename: "stable_#{polley.id}_picture")

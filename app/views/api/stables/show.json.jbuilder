@@ -42,6 +42,7 @@ else
                     json.id review.reservation.user.id
                     json.first_name review.reservation.user.first_name
                     json.last_name review.reservation.user.last_name
+                    json.riding_location review.reservation.user.riding_location
                     json.reviewCount review.reservation.user.reviews.size
                 end
             end

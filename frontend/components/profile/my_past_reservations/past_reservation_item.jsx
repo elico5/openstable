@@ -1,15 +1,20 @@
 import React from 'react';
 import { getAMPM } from '../../../util/time/time';
 import pastReservationType from '../../../util/reservations/past_reservation_type';
+import { REVIEW_FORM_FLAG, turnOnModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const PastReservationItem = ({ reservation, stable, history }) => {
+const PastReservationItem = ({ reservation, stable, history, turnOnReviewModal }) => {
     const redirectToStableShow = () => {
         history.push(`/stables/${stable.id}`);
     };
     const redirectToReviews = () => {
         history.push('/my/profile/reviews');
+    }
+    const initiateReviewModal = () => {
+        const info = Object.assign({ stable }, { reservation });
+        turnOnReviewModal(info);
     }
     const flexElementSelection = flag => {
         switch (flag) {
@@ -22,7 +27,7 @@ const PastReservationItem = ({ reservation, stable, history }) => {
                     <i className='fas fa-check-circle'></i> Reviewed
                 </button>;
             case 'reviewable':
-                return <button className='reviewable-reservation-button'>
+                return <button onClick={initiateReviewModal} className='reviewable-reservation-button'>
                     Write a Review
                 </button>;
             case 'unreviewable':
@@ -60,7 +65,7 @@ const PastReservationItem = ({ reservation, stable, history }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        turnOnReviewModal: info => dispatch(turnOnModal(REVIEW_FORM_FLAG, info))
     };
 };
 

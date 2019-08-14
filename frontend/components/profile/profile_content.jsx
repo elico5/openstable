@@ -2,6 +2,7 @@ import React from 'react';
 import MyUserInformation from './my_user_information/my_user_information';
 import MyUpcomingReservations from './my_upcoming_reservations/my_upcoming_reservations';
 import MyPastReservations from './my_past_reservations/my_past_reservations';
+import MyReviews from './my_reviews/my_reviews';
 import MyFavorites from './my_favorites/my_favorites';
 import { turnOnLoader, turnOffLoader } from '../../actions/loader_actions';
 import { fetchUserInfo } from '../../actions/user_actions';
@@ -110,7 +111,7 @@ class ProfileContent extends React.Component {
                             <MyPastReservations />
                         </div>
                         <div id='reviews'>
-
+                            <MyReviews />
                         </div>
                         <div id='favorites'>
                             <MyFavorites />

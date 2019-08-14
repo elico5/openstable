@@ -1,6 +1,7 @@
 import React from 'react';
 import { RESERVATION_CONFIRMATION_FLAG, turnOnModal, LOGIN_FORM_FLAG } from '../../../actions/modal_actions';
 import { getAMPM } from '../../../util/time/time';
+import futureSlot from '../../../util/slots/future_slot';
 import { connect } from 'react-redux';
 
 const StableSlots = ({ slots, userId, turnOnConfirmationModal, turnOnLoginModal }) => {
@@ -20,7 +21,7 @@ const StableSlots = ({ slots, userId, turnOnConfirmationModal, turnOnLoginModal 
             </div>
         );
     } else {
-        const slotButtons = Object.values(slots).sort((slot1, slot2) => {
+        const slotButtons = Object.values(slots).filter(slot => futureSlot(slot)).sort((slot1, slot2) => {
             return slot1.time > slot2.time ? 1 : -1;
         }).map((slot, i) => {
             return <button key={i}

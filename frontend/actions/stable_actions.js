@@ -23,8 +23,8 @@ export const fetchStable = (stableId, currentUserId) => dispatch => {
     );
 };
 
-export const fetchHomepageStables = () => dispatch => {
-    return StableAPI.fetchHomepageStables().then(
+export const fetchHomepageStables = regionId => dispatch => {
+    return StableAPI.fetchHomepageStables(regionId).then(
         stables => dispatch(receiveStables(stables))
     );
 };

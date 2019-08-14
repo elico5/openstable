@@ -6,7 +6,13 @@ import { withRouter } from 'react-router-dom';
 
 const NavRight = ({ user, currentUserId, turnOnModal, logout, history }) => {
     if (currentUserId) {
-        const toggleDropdown = () => {
+        document.getElementById('root').addEventListener("click", e => {
+            if (e.target.classList[0] !== 'toggle-dropdown') {
+                document.getElementById('user-dropdown').style.display = ''
+            }
+        });
+        const toggleDropdown = e => {
+            e.stopPropagation();
             const dropdownElement = document.getElementById('user-dropdown');
             dropdownElement.style.display = dropdownElement.style.display === '' ?
                 'block' : '';

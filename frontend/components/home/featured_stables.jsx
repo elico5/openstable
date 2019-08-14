@@ -8,9 +8,18 @@ import { connect } from 'react-redux';
 class FeaturedStables extends React.Component {
     componentDidMount() {
         this.props.turnOnLoader();
-        this.props.fetchHomepageStables().then(
+        this.props.fetchHomepageStables(this.props.region).then(
             () => this.props.turnOffLoader()
         );
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.region != this.props.region) {
+            this.props.turnOnLoader();
+            this.props.fetchHomepageStables(this.props.region).then(
+                () => this.props.turnOffLoader()
+            );
+        }
     }
 
     render() {
@@ -35,15 +44,16 @@ class FeaturedStables extends React.Component {
 
 }
 
-const mapStateToProps = ({ entities }) => {
+const mapStateToProps = ({ entities, session }) => {
     return {
-        stables: entities.stables
+        stables: entities.stables,
+        region: session.region
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchHomepageStables: () => dispatch(fetchHomepageStables()),
+        fetchHomepageStables: regionId => dispatch(fetchHomepageStables(regionId)),
         turnOnLoader: () => dispatch(turnOnLoader()),
         turnOffLoader: () => dispatch(turnOffLoader())
     };

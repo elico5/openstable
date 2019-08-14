@@ -11,8 +11,10 @@ const MyUserInformation = ({ user }) => {
                 firstName={user.first_name}
                 lastName={user.last_name}
                 phoneNumber={user.phone_number}
-                ridingLocation={user.riding_location} />
-            <PasswordChangeForm />
+                ridingLocation={user.riding_location}
+                currentUserId={user.id} />
+            <PasswordChangeForm 
+                currentUserId={user.id} />
         </div>
     );
 };

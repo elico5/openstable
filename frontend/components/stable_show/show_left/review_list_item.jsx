@@ -1,4 +1,5 @@
 import React from 'react';
+import regionIdToString from '../../../util/render/region_id_to_string';
 import renderStars from '../../../util/render/render_stars';
 import ReadMore from '../../../util/render/read_more';
 
@@ -10,6 +11,7 @@ export default ({ review, user }) => {
             <div className='review-list-item-left-container'>
                 <i className={'fas fa-user-circle ' + reviewColor} />
                 <div className='user-name'>{user.first_name + " " + user.last_name[0].toUpperCase() + '.'}</div>
+                <div className='user-region'>{regionIdToString(user.riding_location)}</div>
                 <div className='user-review-count'>
                     <i className='fas fa-comment ' />
                     {user.reviewCount} {user.reviewCount > 1 ? 'reviews' : 'review'}

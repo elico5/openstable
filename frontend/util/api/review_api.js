@@ -8,7 +8,8 @@ export const createReview = (reservationId, overall, service, cleanliness, value
                 service,
                 cleanliness,
                 value,
-                body
+                body,
+                reservation_id: reservationId
             }
         }
     });

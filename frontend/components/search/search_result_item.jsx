@@ -3,6 +3,7 @@ import { RESERVATION_CONFIRMATION_FLAG, LOGIN_FORM_FLAG, turnOnModal } from '../
 import { getAMPM } from '../../util/time/time';
 import renderStars from '../../util/render/render_stars';
 import priceCategory from '../../util/render/price_category';
+import futureSlot from '../../util/slots/future_slot';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -14,7 +15,7 @@ const SearchResultItem = ({ stable, slots, userId, history, turnOnLoginModal, tu
             turnOnLoginModal();
         }
     };
-    const slotButtons = Object.values(slots).sort((slot1, slot2) => {
+    const slotButtons = Object.values(slots).filter(slot => futureSlot(slot)).sort((slot1, slot2) => {
         return slot1.time > slot2.time ? 1 : -1;
     }).map((slot, i) => {
         return <button key={i}

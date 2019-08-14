@@ -119,11 +119,11 @@
 }
 
 .first-last-form-container .user-info-first, .first-last-form-container .user-info-last {
-    width: calc(50% - 5px);
+    width: calc(50% - 13px);
 }
 
 .first-last-form-container input {
-    width: calc(100% - 5px);
+    width: calc(100% - 13px);
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -140,7 +140,7 @@
 }
 
 .user-info-other-container input {
-    width: calc(100% - 4px);
+    width: calc(100% - 12px);
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -188,14 +188,14 @@
     display: block !important;
 }
 
-.my-favorites-container, .my-upcoming-reservations-container, .my-past-reservations-container {
+.my-favorites-container, .my-upcoming-reservations-container, .my-past-reservations-container, .my-reviews-container {
     width: 700px;
     height: max-content;
     margin: 0 auto;
     padding: 50px 0;
 }
 
-.favorite-list-item-container, .upcoming-reservation-item-container, .past-reservation-item-container {
+.favorite-list-item-container, .upcoming-reservation-item-container, .past-reservation-item-container, .review-item-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -203,18 +203,18 @@
     border-bottom: 1px solid #ccc;
 }
 
-.favorite-stable-image-container, .upcoming-reservation-image-container, .past-reservation-image-container {
+.favorite-stable-image-container, .upcoming-reservation-image-container, .past-reservation-image-container, .review-image-container {
     width: 200px;
     height: 200px;
     overflow: hidden;
     border-radius: 4px;
 }
 
-.favorite-stable-image-container:hover, .upcoming-reservation-image-container:hover, .past-reservation-image-container:hover {
+.favorite-stable-image-container:hover, .upcoming-reservation-image-container:hover, .past-reservation-image-container:hover, .review-image-container:hover {
     cursor: pointer;
 }
 
-.favorite-stable-image, .upcoming-reservation-stable-image, .past-reservation-stable-image {
+.favorite-stable-image, .upcoming-reservation-stable-image, .past-reservation-stable-image, .review-stable-image {
     width: 100%;
     height: 100%;
 }
@@ -223,11 +223,71 @@
     width: 250px;
 }
 
-.favorite-stable-info-container .unfilled {
+.review-right-container {
+    width: calc(100% - 230px);
+}
+
+.stable-reservation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-stable-details {
+    width: 60%;
+}
+
+.review-reservation-details {
+    width: 30%;
+}
+
+.review-stable-name {
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-body-heading {
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-stable-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.review-summary-container {
+    margin: 15px 0;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+}
+
+.review-summary-container .index-item-stars {
+    display: inline;
+    margin-right: 10px;
+}
+
+.review-summary-container span {
+    color: #B8A68E;
+    font-weight: 900;
+    margin-right: 4px;
+}
+
+.review-summary-container span:nth-of-type(1) {
+    color: #2D333F;
+    margin-right: 10px;
+}
+
+.favorite-stable-info-container .unfilled, .review-right-container .unfilled {
     color: #ccc;
 }
 
-.favorite-stable-info-container .filled {
+.favorite-stable-info-container .filled, .review-right-container .filled {
     color: #B8A68E;
 }
 
@@ -332,7 +392,41 @@
     color: white;
 }
 
-.no-current-favorites, .no-upcoming-reservations, .no-past-reservations {
+.no-current-favorites, .no-upcoming-reservations, .no-past-reservations, .no-reviews {
     font-size: 18px;
     font-weight: 900;
+}
+
+.review-item-container p {
+    overflow: hidden;
+}
+
+#user-info-success-message, #password-success-message {
+    color: forestgreen;
+    margin-top: 10px;
+    display: none;
+}
+
+#password-error-message, #demo-password-error-message {
+    color: #DA3743;
+    margin-top: 10px;
+    display: none;
+}
+
+.user-error-message {
+    margin-top: 5px;
+    color: #DA3743;
+}
+
+.user-error-message:nth-of-type(1) {
+    margin-top: 10px;
+}
+
+.my-user-information-container input {
+    font-size: 16px;
+    padding-left: 8px;
+}
+
+.my-user-information-container .invalid {
+    border: 1px solid #DA3743 !important;
 }

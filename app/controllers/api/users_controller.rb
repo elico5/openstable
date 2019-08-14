@@ -17,6 +17,30 @@ class Api::UsersController < ApplicationController
         render :show
     end
 
+    def update
+        @user = User.find(params[:id])
+        if @user.email == 'demouser@openstable.com'
+            render json: ['You cannot alter the Demo User account information!'], status: 422
+            return
+        end
+        if params[:password]
+            if @user.update(password: params[:password][:password])
+                render json: ['Password changed successfully']
+            else
+                render json: @user.errors.full_messages, status: 422
+            end
+        elsif @user.update(
+            email: user_params[:email],
+            first_name: user_params[:first_name],
+            last_name: user_params[:last_name],
+            phone_number: user_params[:phone_number],
+            riding_location: user_params[:riding_location])
+            render :update
+        else
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
+
     private
 
     def user_params

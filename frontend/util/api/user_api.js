@@ -10,12 +10,12 @@ export const changeUserInfo = (userId, email, firstName, lastName, phoneNumber, 
         method: 'PATCH',
         url: `/api/users/${userId}`,
         data: {
-            userInfo: {
+            user: {
                 email,
-                firstName,
-                lastName,
-                phoneNumber,
-                ridingLocation
+                first_name: firstName,
+                last_name: lastName,
+                phone_number: phoneNumber,
+                riding_location: ridingLocation
             }
         }
     });

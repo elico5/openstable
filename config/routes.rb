@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :favorites, only: [:create, :destroy]
     end
 
+    get '/regions', to: 'stables#regions'
+
     resources :reservations, only: [:update] do
       resources :reviews, only: [:create]
     end
