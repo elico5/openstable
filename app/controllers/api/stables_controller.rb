@@ -9,7 +9,7 @@ class Api::StablesController < ApplicationController
     end
 
     def index
-        @stables = Stable.includes(:reviews, :reservations_today, :reservations)
+        @stables = Stable.includes(:reviews, :reservations_today, :reservations).with_attached_picture
             .left_joins(:reservations)
             .where(region: params[:region][:regionId].to_i)
             .group(:id)
