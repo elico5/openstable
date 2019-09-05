@@ -47,7 +47,7 @@ const PastReservationItem = ({ reservation, stable, history, turnOnReviewModal }
                     {stable.name}
                 </div>
                 <div className='past-reservation-date-time'>
-                    <i className='fas fa-clock'></i> {reservation.date} at {getAMPM(reservation.time.slice(11, 16))}
+                    <i className='fas fa-clock'></i> {reservation.date} at {getAMPM(reservation.time.slice(11, 16))} for {stable.duration} hours
                 </div>
                 <div className='past-reservation-location'>
                     <i className='fas fa-map-marker-alt'></i> {stable.city}, {stable.state}
