@@ -12,19 +12,6 @@ class StableShow extends React.Component {
         this.props.fetchStable(this.props.match.params.stableId, this.props.currentUserId).then(
             () => this.props.turnOffLoader()
         );
-        const toggleStickyClass = () => {
-            const mainContainer = document.getElementById('show-content');
-            const reservationForm = document.getElementById('reservation-form');
-            const showNav = document.getElementById('show-nav');
-            if (mainContainer.getBoundingClientRect()["y"] < 0) {
-                reservationForm.classList.add('sticky');
-                showNav.classList.add('sticky');
-            } else {
-                reservationForm.classList.remove('sticky');
-                showNav.classList.remove('sticky');
-            }
-        };
-        window.addEventListener('scroll', toggleStickyClass);
     }
 
     componentDidUpdate(prevProps) {

@@ -58,12 +58,8 @@
     border-radius: 2px;
     margin-bottom: 15px;
     background: white;
-}
-
-.sticky {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: inherit;
     z-index: 1;
 }
 
