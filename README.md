@@ -1,6 +1,6 @@
 # OpenStable
 
-[Live Site](https://open-stable.herokuapp.com/)
+<a href="https://open-stable.herokuapp.com/" target="_blank">Live Site</a>
 
 OpenStable is a full stack web application modeled after OpenTable through which users can search, create reservations at, and review stables across vanished America. OpenStable uses **Ruby on Rails** and **PostgreSQL** for its backend, as well as **React** and **Redux** for its frontend. The majority of the application was developed in a span of ten days.
 
