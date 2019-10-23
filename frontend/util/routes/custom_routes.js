@@ -5,11 +5,7 @@ import { connect } from 'react-redux';
 
 const Search = ({ component: Component, path, valid }) => {
     return (<Route path={path} render={(props) => (
-        valid ? (
-            <Component {...props} />
-        ) : (
-            <Redirect to='/' />
-        )
+        valid ? (<Component {...props} />) : (<Redirect to='/' />)
     )}/>);
 };
 
