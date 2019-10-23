@@ -32,6 +32,11 @@ export const getTodayStringDate = () => {
     return [YYYY, MM, DD].join("-");
 };
 
+export const getNowStringTime = () => {
+    const now = new Date();
+    return String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+}
+
 export const getOneMonthStringDate = (todayStringDate) => {
     let [YYYY, MM, DD] = todayStringDate.split('-').map(stringNumber => parseInt(stringNumber));
     if (MM === 11) {

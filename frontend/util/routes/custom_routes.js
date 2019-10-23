@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
+import { getTodayStringDate, getNowStringTime } from '../search/generate_form_params';
 import { connect } from 'react-redux';
 
 const Search = ({ component: Component, path, valid }) => {
@@ -13,29 +14,22 @@ const Search = ({ component: Component, path, valid }) => {
 };
 
 const mapStateToSearchProps = (state, { location }) => {
-    try {
-        const query_string = location.pathname.slice(8);
-        const [regionParams, dateParams, timeParams, partysizeParams] = query_string.split('+').map((portion) => {
-            return portion.split('=');
-        });
-        let region, date, time, partySize;
-        if (regionParams[0] === 'region' && dateParams[0] === 'date' && timeParams[0] === 'time' && partysizeParams[0] === 'partysize') {
-            [region, date, time, partySize] = [parseInt(regionParams[1]), dateParams[1], timeParams[1], parseInt(partysizeParams[1])];
-            if (date.length !== 10 || time.length !== 5 || date.split('-').length !== 3 ||
-                time.split(':').length !== 2 || isNaN(region) || isNaN(partySize)) {
-                throw "Invalid date or time";
-            }
-        } else {
-            throw "Invalid query string";
+    const re = new RegExp(/^region=(\d)\+date=(\d{4}-\d{2}-\d{2})\+time=(\d{2}:\d{2})\+partysize=(\d{1,2})$/);
+    const query = location.pathname.slice(8);
+    const match = re.exec(query);
+    if (match) {
+        const [region, date, time, size] = [parseInt(match[1]), match[2], match[3], parseInt(match[4])];
+        const [today, now] = [getTodayStringDate(), getNowStringTime()];
+        if (
+            (region >= 0 && region <= 5) &&
+            (time >= '00:00' && time <= '23:59') &&
+            (date > today || (date === today && time >= now)) &&
+            (size >= 1 && size <= 20)
+        ) { 
+            return { valid: true };
         }
-        return {
-            valid: true
-        };
-    } catch (error) {
-        return {
-            valid: false
-        };
-    }
+    } 
+    return { valid: false }
 };
 
 export const SearchRoute = withRouter(connect(mapStateToSearchProps)(Search));
