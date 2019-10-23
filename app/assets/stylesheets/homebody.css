@@ -112,6 +112,10 @@
     font-size: 20px;
 }
 
+.featured-regions-outer-container {
+    padding-bottom: 10px;
+}
+
 .featured-regions-outer-container h1 {
     font-size: 26px;
     font-weight: 900;

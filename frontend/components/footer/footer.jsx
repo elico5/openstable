@@ -2,7 +2,7 @@ import React from 'react';
 
 export default () => {
     const linkedinUrl = 'https://www.linkedin.com/in/eli-cohen-19066/';
-    const portfolioUrl = '';
+    const portfolioUrl = 'https://elico5.github.io/';
     const githubUrl = 'https://github.com/elico5';
     const openNewTab = url => {
         window.open(url, '_blank');
